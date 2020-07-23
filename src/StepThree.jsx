@@ -16,7 +16,7 @@ const StepThree = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="apprentice"
+                name="trained_apprentice"
                 id="apprentice1"
                 value="option1"
                 checked
@@ -29,7 +29,7 @@ const StepThree = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="apprentice"
+                name="trained_apprentice"
                 id="apprentice2"
                 value="option2"
               />
@@ -52,6 +52,7 @@ const StepThree = () => {
                 name="train"
                 id="train1"
                 value="option1"
+                name="want_trained_apprentice"
                 checked
               />
               <label className="form-check-label" htmlFor="train1">
@@ -65,6 +66,7 @@ const StepThree = () => {
                 name="train"
                 id="train2"
                 value="option2"
+                name="want_trained_apprentice"
               />
               <label className="form-check-label" htmlFor="train2">
                 No
@@ -77,7 +79,12 @@ const StepThree = () => {
           <label htmlFor="apprentc">
             How many apprentices can you take at a time?:
           </label>
-          <input type="number" className="form-control" id="apprentc" />
+          <input
+            type="number"
+            className="form-control"
+            id="apprentc"
+            name="no_apprentices"
+          />
         </div>
 
         <div className="form-group">
@@ -85,7 +92,12 @@ const StepThree = () => {
             What additional support would you need from NBSSI to be able to
             train apprentices?:
           </label>
-          <input type="text" className="form-control" id="tr-apprentc" />
+          <input
+            type="text"
+            className="form-control"
+            id="tr-apprentc"
+            name="additional_support"
+          />
         </div>
         <button type="submit" onSubmit={submitHandler}>
           Submit Form

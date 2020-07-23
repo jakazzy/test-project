@@ -4,24 +4,6 @@ import "./stepone.css";
 
 const StepTwo = () => {
   const { data, changeHandler } = useContext(FormContext);
-  // "business_name": "",
-  //       "region": "",
-  //       "district":"",
-  //       "registered": "",
-  //       "registration_no": "",
-  //       "has_tin": "",
-  //       "tin_no": "",
-  //       "association_member": "",
-  //       "nvti_cert": "",
-  //       "rcvd_nbssi_support": "",
-  //       "want_nbssi_support":"",
-  //       "support_description": "",
-  //       "years_practing":"",
-  //       "trained_apprentice": "",
-  //       "want_train_apprentice": "",
-  //       "no_apprentices": "",
-  //       "additional_support":"",
-  //       "createdon": ""
 
   return (
     <div className="container personal-info">
