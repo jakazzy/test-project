@@ -1,4 +1,7 @@
-.personal-info {
+.container.personal-info {
   width: 44rem;
   margin-left: 0;
 }
+/* .container {
+  background-color: red;
+} */
