@@ -30,14 +30,14 @@ const FormContextProvider =(props) =>{
 
 
     }])
-    const addData = ()=>{
-        setBooks([...books], {})
+    const addData = ( value)=>{
+        setData([...data], )
     }
     return (
-        <div>
-            
-        </div>
+        <FormContext.Provider value={{ data, addData}}>
+            { props.children }
+        </FormContext.Provider>
     )
 }
 
-export default FormContext
+export default FormContextProvider

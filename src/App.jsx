@@ -1,10 +1,13 @@
 import React from "react";
 import Form from "./Form";
+import FormContextProvider from "./context/FormContext";
 
 const App = () => {
   return (
     <div className="container">
-      <Form />
+      <FormContextProvider>
+        <Form />
+      </FormContextProvider>
     </div>
   );
 };
