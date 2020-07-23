@@ -35,12 +35,12 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios1"
+                name="reg"
+                id="reg1"
                 value="option1"
                 checked
               />
-              <label className="form-check-label" htmlFor="male">
+              <label className="form-check-label" htmlFor="reg1">
                 Yes
               </label>
             </div>
@@ -48,11 +48,11 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios2"
+                name="reg"
+                id="reg2"
                 value="option2"
               />
-              <label className="form-check-label" htmlFor="female">
+              <label className="form-check-label" htmlFor="reg2">
                 No
               </label>
             </div>
@@ -74,12 +74,12 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios1"
+                name="tin"
+                id="tin1"
                 value="option1"
                 checked
               />
-              <label className="form-check-label" htmlFor="male">
+              <label className="form-check-label" htmlFor="tin1">
                 Yes
               </label>
             </div>
@@ -87,11 +87,11 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios2"
+                name="tin"
+                id="tin2"
                 value="option2"
               />
-              <label className="form-check-label" htmlFor="female">
+              <label className="form-check-label" htmlFor="tin2">
                 No
               </label>
             </div>
@@ -113,12 +113,12 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios1"
+                name="assoc"
+                id="assoc1"
                 value="option1"
                 checked
               />
-              <label className="form-check-label" htmlFor="male">
+              <label className="form-check-label" htmlFor="assoc1">
                 Yes
               </label>
             </div>
@@ -126,11 +126,11 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios2"
+                name="assoc"
+                id="assoc2"
                 value="option2"
               />
-              <label className="form-check-label" htmlFor="female">
+              <label className="form-check-label" htmlFor="assoc2">
                 No
               </label>
             </div>
@@ -148,12 +148,12 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios1"
+                name="nvti"
+                id="nvti1"
                 value="option1"
                 checked
               />
-              <label className="form-check-label" htmlFor="male">
+              <label className="form-check-label" htmlFor="nvti1">
                 Yes
               </label>
             </div>
@@ -161,11 +161,11 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios2"
+                name="nvti"
+                id="nvti2"
                 value="option2"
               />
-              <label className="form-check-label" htmlFor="female">
+              <label className="form-check-label" htmlFor="nvti2">
                 No
               </label>
             </div>
@@ -183,12 +183,12 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios1"
+                name="nbssi"
+                id="nbssi1"
                 value="option1"
                 checked
               />
-              <label className="form-check-label" htmlFor="male">
+              <label className="form-check-label" htmlFor="nbssi1">
                 Yes
               </label>
             </div>
@@ -196,11 +196,11 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios2"
+                name="nbssi"
+                id="nbssi2"
                 value="option2"
               />
-              <label className="form-check-label" htmlFor="female">
+              <label className="form-check-label" htmlFor="nbssi2">
                 No
               </label>
             </div>
@@ -218,12 +218,12 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios1"
+                name="support"
+                id="support1"
                 value="option1"
                 checked
               />
-              <label className="form-check-label" htmlFor="male">
+              <label className="form-check-label" htmlFor="support1">
                 Yes
               </label>
             </div>
@@ -231,11 +231,11 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="gridRadios"
-                id="gridRadios2"
+                name="support"
+                id="support2"
                 value="option2"
               />
-              <label className="form-check-label" htmlFor="female">
+              <label className="form-check-label" htmlFor="support2">
                 No
               </label>
             </div>

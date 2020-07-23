@@ -18,9 +18,9 @@ function StepOne() {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="gridRadios"
+                  name="gender"
                   id="gridRadios1"
-                  value="option1"
+                  value="male"
                   checked
                 />
                 <label className="form-check-label" htmlFor="male">
@@ -31,9 +31,9 @@ function StepOne() {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="gridRadios"
+                  name="gender"
                   id="gridRadios2"
-                  value="option2"
+                  value="female"
                 />
                 <label className="form-check-label" htmlFor="female">
                   Female
