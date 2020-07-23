@@ -7,7 +7,7 @@ function StepOne() {
       <form>
         <div className="form-group">
           <label htmlFor="name">Name of skilled craft person:</label>
-          <input type="name" className="form-control" id="name" />
+          <input type="text" className="form-control" id="name" />
         </div>
 
         <fieldset className="form-group">
@@ -55,15 +55,9 @@ function StepOne() {
           <label htmlFor="address">Ghana Post Digital Address:</label>
           <input type="address" className="form-control" id="address" />
         </div>
-        {/* 
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" /> Remember me
-          </label>
-        </div> */}
-        <button type="submit" className="btn btn-default">
+        {/* <button type="submit" className="btn btn-default">
           Submit
-        </button>
+        </button> */}
       </form>
     </div>
   );
