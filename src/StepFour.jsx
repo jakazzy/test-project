@@ -3,7 +3,7 @@ import React from "react";
 const StepFour = () => {
   return (
     <div>
-      <p>Completed submission</p>
+      <p>Form submitted Successfully</p>
     </div>
   );
 };
