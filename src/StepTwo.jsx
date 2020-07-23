@@ -1,4 +1,5 @@
 import React from "react";
+import "./stepone.css";
 
 const StepTwo = () => {
   return (

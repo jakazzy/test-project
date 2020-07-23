@@ -4,59 +4,86 @@ const StepThree = () => {
   return (
     <div className="container personal-info">
       <form>
-        <div className="form-group">
-          <label htmlFor="name">Name of skilled craft person:</label>
-          <input type="name" className="form-control" id="name" />
-        </div>
+        <fieldset className="form-group">
+          <legend className="col-form-label pt-0">
+            Have you trained apprentices before?{" "}
+          </legend>
+          <div className="col-sm-10">
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="apprentice"
+                id="apprentice1"
+                value="option1"
+                checked
+              />
+              <label className="form-check-label" htmlFor="apprentice1">
+                Yes
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="apprentice"
+                id="apprentice2"
+                value="option2"
+              />
+              <label className="form-check-label" htmlFor="apprentice2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
 
         <fieldset className="form-group">
-          <div className="row">
-            <legend className="col-form-label col-sm-2 pt-0">Gender</legend>
-            <div className="col-sm-10">
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="gridRadios"
-                  id="gridRadios1"
-                  value="option1"
-                  checked
-                />
-                <label className="form-check-label" htmlFor="male">
-                  Male
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="gridRadios"
-                  id="gridRadios2"
-                  value="option2"
-                />
-                <label className="form-check-label" htmlFor="female">
-                  Female
-                </label>
-              </div>
+          <legend className="col-form-label pt-0">
+            If no, would you like to train apprentices?{" "}
+          </legend>
+          <div className="col-sm-10">
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="train"
+                id="train1"
+                value="option1"
+                checked
+              />
+              <label className="form-check-label" htmlFor="train1">
+                Yes
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="train"
+                id="train2"
+                value="option2"
+              />
+              <label className="form-check-label" htmlFor="train2">
+                No
+              </label>
             </div>
           </div>
         </fieldset>
 
         <div className="form-group">
-          <label htmlFor="tel">Contact Number:</label>
-          <input type="tel" className="form-control" id="tel" />
+          <label htmlFor="apprentc">
+            How many apprentices can you take at a time?:
+          </label>
+          <input type="number" className="form-control" id="apprentc" />
         </div>
+
         <div className="form-group">
-          <label htmlFor="email">Email Address:</label>
-          <input type="email" className="form-control" id="email" />
+          <label htmlFor="tr-apprentc">
+            What additional support would you need from NBSSI to be able to
+            train apprentices?:
+          </label>
+          <input type="text" className="form-control" id="tr-apprentc" />
         </div>
-        <div className="form-group">
-          <label htmlFor="address">Ghana Post Digital Address:</label>
-          <input type="address" className="form-control" id="address" />
-        </div>
-        <button type="submit" className="btn btn-default">
-          Submit
-        </button>
       </form>
     </div>
   );
