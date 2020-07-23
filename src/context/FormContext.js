@@ -33,8 +33,18 @@ const FormContextProvider =(props) =>{
     const addData = ( value)=>{
         setData([...data], )
     }
+
+    const changeHandler=(e)=>{
+        console.log(e.target.name, 'i see you');
+        setData({[e.target.name]: e.target.value})
+    }
+
+    const submitHandler=(e)=>{
+        e.preventDefault()
+        console.log(e, "submiting e");
+    }
     return (
-        <FormContext.Provider value={{ data, addData}}>
+        <FormContext.Provider value={{ data, addData, changeHandler, submitHandler}}>
             { props.children }
         </FormContext.Provider>
     )

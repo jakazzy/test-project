@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FormContext } from "./context/FormContext";
 
 const StepThree = () => {
+  const { data, changeHandler, submitHandler } = useContext(FormContext);
+
   return (
     <div className="container personal-info">
-      <form>
+      <form onSubmit={submitHandler}>
         <fieldset className="form-group">
           <legend className="col-form-label pt-0">
             Have you trained apprentices before?{" "}
@@ -84,6 +87,9 @@ const StepThree = () => {
           </label>
           <input type="text" className="form-control" id="tr-apprentc" />
         </div>
+        <button type="submit" onSubmit={submitHandler}>
+          Submit Form
+        </button>
       </form>
     </div>
   );
