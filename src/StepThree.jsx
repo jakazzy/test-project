@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FormContext } from "./context/FormContext";
 
 const StepThree = () => {
-  const { data, changeHandler, submitHandler } = useContext(FormContext);
+  const { changeHandler, submitHandler } = useContext(FormContext);
 
   return (
     <div className="container personal-info">

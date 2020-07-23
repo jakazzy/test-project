@@ -3,7 +3,7 @@ import { FormContext } from "./context/FormContext";
 import "./stepone.css";
 
 function StepOne() {
-  const { data, changeHandler } = useContext(FormContext);
+  const { changeHandler } = useContext(FormContext);
   return (
     <div className="container personal-info">
       <form>
