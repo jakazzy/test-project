@@ -234,6 +234,18 @@ const StepTwo = () => {
             </div>
           </div>
         </fieldset>
+        <div className="form-group">
+          <label htmlFor="supp">
+            If yes, what kind of support do you need from NBSSI:
+          </label>
+          <input type="text" className="form-control" id="supp" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="years">
+            How many years have you been a Skilled Craft Person?:
+          </label>
+          <input type="number" className="form-control" id="years" />
+        </div>
       </form>
     </div>
   );
