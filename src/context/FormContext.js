@@ -41,7 +41,8 @@ const FormContextProvider =(props) =>{
 
     const submitHandler=(e)=>{
         e.preventDefault()
-        console.log(e, "submiting e");
+        // setData([...data, ] )
+        console.log(data, "submiting e");
     }
     return (
         <FormContext.Provider value={{ data, addData, changeHandler, submitHandler}}>

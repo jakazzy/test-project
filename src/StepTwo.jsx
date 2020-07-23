@@ -1,29 +1,80 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FormContext } from "./context/FormContext";
 import "./stepone.css";
 
 const StepTwo = () => {
+  const { data, changeHandler } = useContext(FormContext);
+  // "business_name": "",
+  //       "region": "",
+  //       "district":"",
+  //       "registered": "",
+  //       "registration_no": "",
+  //       "has_tin": "",
+  //       "tin_no": "",
+  //       "association_member": "",
+  //       "nvti_cert": "",
+  //       "rcvd_nbssi_support": "",
+  //       "want_nbssi_support":"",
+  //       "support_description": "",
+  //       "years_practing":"",
+  //       "trained_apprentice": "",
+  //       "want_train_apprentice": "",
+  //       "no_apprentices": "",
+  //       "additional_support":"",
+  //       "createdon": ""
+
   return (
     <div className="container personal-info">
       <form>
         <div className="form-group">
           <label htmlFor="bname">Business Name:</label>
-          <input type="text" className="form-control" id="bname" />
+          <input
+            type="text"
+            className="form-control"
+            id="bname"
+            name="business_name"
+            onChange={changeHandler}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="locatn">Location of Business:</label>
-          <input type="text" className="form-control" id="locatn" />
+          <input
+            type="text"
+            className="form-control"
+            id="locatn"
+            onChange={changeHandler}
+            name="location"
+          />
         </div>
         <div className="form-group">
           <label htmlFor="town">Town</label>
-          <input type="text" className="form-control" id="town" />
+          <input
+            type="text"
+            className="form-control"
+            id="town"
+            name="town"
+            onChange={changeHandler}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="district">District:</label>
-          <input type="text" className="form-control" id="district" />
+          <input
+            type="text"
+            className="form-control"
+            id="district"
+            onChange={changeHandler}
+            name="district"
+          />
         </div>
         <div className="form-group">
           <label htmlFor="region">Region:</label>
-          <input type="text" className="form-control" id="region" />
+          <input
+            type="text"
+            className="form-control"
+            id="region"
+            onChange={changeHandler}
+            name="region"
+          />
         </div>
 
         <fieldset className="form-group">
@@ -39,6 +90,8 @@ const StepTwo = () => {
                 name="reg"
                 id="reg1"
                 value="option1"
+                onChange={changeHandler}
+                name="registered"
                 checked
               />
               <label className="form-check-label" htmlFor="reg1">
@@ -52,6 +105,8 @@ const StepTwo = () => {
                 name="reg"
                 id="reg2"
                 value="option2"
+                onChange={changeHandler}
+                name="registered"
               />
               <label className="form-check-label" htmlFor="reg2">
                 No
@@ -62,7 +117,13 @@ const StepTwo = () => {
 
         <div className="form-group">
           <label htmlFor="reg">If yes state your registration number</label>
-          <input type="text" className="form-control" id="reg" />
+          <input
+            type="text"
+            className="form-control"
+            id="reg"
+            onChange={changeHandler}
+            name="registered_no"
+          />
         </div>
 
         <fieldset className="form-group">
@@ -77,6 +138,8 @@ const StepTwo = () => {
                 name="tin"
                 id="tin1"
                 value="option1"
+                onChange={changeHandler}
+                name="has_tin"
                 checked
               />
               <label className="form-check-label" htmlFor="tin1">
@@ -90,6 +153,8 @@ const StepTwo = () => {
                 name="tin"
                 id="tin2"
                 value="option2"
+                onChange={changeHandler}
+                name="has_tin"
               />
               <label className="form-check-label" htmlFor="tin2">
                 No
@@ -100,7 +165,13 @@ const StepTwo = () => {
 
         <div className="form-group">
           <label htmlFor="tin">If yes, state your business TIN number</label>
-          <input type="text" className="form-control" id="tin" />
+          <input
+            type="text"
+            className="form-control"
+            id="tin"
+            onChange={changeHandler}
+            name="tin_no"
+          />
         </div>
 
         <fieldset className="form-group">
@@ -115,6 +186,8 @@ const StepTwo = () => {
                 name="assoc"
                 id="assoc1"
                 value="option1"
+                onChange={changeHandler}
+                name="association_member"
                 checked
               />
               <label className="form-check-label" htmlFor="assoc1">
@@ -128,6 +201,8 @@ const StepTwo = () => {
                 name="assoc"
                 id="assoc2"
                 value="option2"
+                onChange={changeHandler}
+                name="association_member"
               />
               <label className="form-check-label" htmlFor="assoc2">
                 No
@@ -149,6 +224,8 @@ const StepTwo = () => {
                 name="nvti"
                 id="nvti1"
                 value="option1"
+                onChange={changeHandler}
+                name="nvti_cert"
                 checked
               />
               <label className="form-check-label" htmlFor="nvti1">
@@ -162,6 +239,8 @@ const StepTwo = () => {
                 name="nvti"
                 id="nvti2"
                 value="option2"
+                onChange={changeHandler}
+                name="nvti_cert"
               />
               <label className="form-check-label" htmlFor="nvti2">
                 No
@@ -182,6 +261,8 @@ const StepTwo = () => {
                 name="nbssi"
                 id="nbssi1"
                 value="option1"
+                onChange={changeHandler}
+                name="rcvd_nbssi_support"
                 checked
               />
               <label className="form-check-label" htmlFor="nbssi1">
@@ -195,6 +276,8 @@ const StepTwo = () => {
                 name="nbssi"
                 id="nbssi2"
                 value="option2"
+                onChange={changeHandler}
+                name="rcvd_nbssi_support"
               />
               <label className="form-check-label" htmlFor="nbssi2">
                 No
@@ -215,6 +298,8 @@ const StepTwo = () => {
                 name="support"
                 id="support1"
                 value="option1"
+                onChange={changeHandler}
+                name="want_nbssi_support"
                 checked
               />
               <label className="form-check-label" htmlFor="support1">
@@ -228,6 +313,8 @@ const StepTwo = () => {
                 name="support"
                 id="support2"
                 value="option2"
+                onChange={changeHandler}
+                name="want_nbssi_support"
               />
               <label className="form-check-label" htmlFor="support2">
                 No
@@ -239,13 +326,25 @@ const StepTwo = () => {
           <label htmlFor="supp">
             If yes, what kind of support do you need from NBSSI:
           </label>
-          <input type="text" className="form-control" id="supp" />
+          <input
+            type="text"
+            className="form-control"
+            id="supp"
+            onChange={changeHandler}
+            name="support_description"
+          />
         </div>
         <div className="form-group">
           <label htmlFor="years">
             How many years have you been a Skilled Craft Person?:
           </label>
-          <input type="number" className="form-control" id="years" />
+          <input
+            type="number"
+            className="form-control"
+            id="years"
+            onChange={changeHandler}
+            name="years_practing"
+          />
         </div>
       </form>
     </div>

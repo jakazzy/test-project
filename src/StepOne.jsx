@@ -2,12 +2,6 @@ import React, { useContext } from "react";
 import { FormContext } from "./context/FormContext";
 import "./stepone.css";
 
-// "trainer_name": "",
-// "gender": "",
-// "telephone": "",
-// "email": "",
-// "digital_address": "",
-
 function StepOne() {
   const { data, changeHandler } = useContext(FormContext);
   return (
