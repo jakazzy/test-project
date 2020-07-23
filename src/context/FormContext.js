@@ -35,7 +35,7 @@ const FormContextProvider =(props) =>{
     }
 
     const changeHandler=(e)=>{
-        console.log(e.target.name, 'i see you');
+        console.log(e.target.value, 'i see you');
         setData({[e.target.name]: e.target.value})
     }
 

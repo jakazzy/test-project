@@ -18,7 +18,8 @@ const StepThree = () => {
                 type="radio"
                 name="trained_apprentice"
                 id="apprentice1"
-                value="option1"
+                value="yes"
+                onChange={changeHandler}
                 checked
               />
               <label className="form-check-label" htmlFor="apprentice1">
@@ -31,7 +32,8 @@ const StepThree = () => {
                 type="radio"
                 name="trained_apprentice"
                 id="apprentice2"
-                value="option2"
+                value="no"
+                onChange={changeHandler}
               />
               <label className="form-check-label" htmlFor="apprentice2">
                 No
@@ -49,11 +51,11 @@ const StepThree = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="train"
                 id="train1"
-                value="option1"
+                value="yes"
                 name="want_trained_apprentice"
                 checked
+                onChange={changeHandler}
               />
               <label className="form-check-label" htmlFor="train1">
                 Yes
@@ -63,10 +65,10 @@ const StepThree = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="train"
                 id="train2"
-                value="option2"
+                value="no"
                 name="want_trained_apprentice"
+                onChange={changeHandler}
               />
               <label className="form-check-label" htmlFor="train2">
                 No
@@ -84,6 +86,7 @@ const StepThree = () => {
             className="form-control"
             id="apprentc"
             name="no_apprentices"
+            onChange={changeHandler}
           />
         </div>
 
@@ -97,6 +100,7 @@ const StepThree = () => {
             className="form-control"
             id="tr-apprentc"
             name="additional_support"
+            onChange={changeHandler}
           />
         </div>
         <button type="submit" onSubmit={submitHandler}>

@@ -3,7 +3,7 @@ import { FormContext } from "./context/FormContext";
 import "./stepone.css";
 
 const StepTwo = () => {
-  const { data, changeHandler } = useContext(FormContext);
+  const { changeHandler } = useContext(FormContext);
 
   return (
     <div className="container personal-info">
@@ -69,9 +69,8 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="reg"
                 id="reg1"
-                value="option1"
+                value="yes"
                 onChange={changeHandler}
                 name="registered"
                 checked
@@ -84,9 +83,8 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="reg"
                 id="reg2"
-                value="option2"
+                value="no"
                 onChange={changeHandler}
                 name="registered"
               />
@@ -117,11 +115,10 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="tin"
                 id="tin1"
-                value="option1"
                 onChange={changeHandler}
                 name="has_tin"
+                value="yes"
                 checked
               />
               <label className="form-check-label" htmlFor="tin1">
@@ -132,11 +129,10 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="tin"
                 id="tin2"
-                value="option2"
                 onChange={changeHandler}
                 name="has_tin"
+                value="no"
               />
               <label className="form-check-label" htmlFor="tin2">
                 No
@@ -165,11 +161,10 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="assoc"
                 id="assoc1"
-                value="option1"
                 onChange={changeHandler}
                 name="association_member"
+                value="yes"
                 checked
               />
               <label className="form-check-label" htmlFor="assoc1">
@@ -180,9 +175,8 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="assoc"
                 id="assoc2"
-                value="option2"
+                value="no"
                 onChange={changeHandler}
                 name="association_member"
               />
@@ -203,11 +197,10 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="nvti"
                 id="nvti1"
-                value="option1"
                 onChange={changeHandler}
                 name="nvti_cert"
+                value="yes"
                 checked
               />
               <label className="form-check-label" htmlFor="nvti1">
@@ -218,9 +211,8 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="nvti"
                 id="nvti2"
-                value="option2"
+                value="no"
                 onChange={changeHandler}
                 name="nvti_cert"
               />
@@ -240,9 +232,8 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="nbssi"
                 id="nbssi1"
-                value="option1"
+                value="yes"
                 onChange={changeHandler}
                 name="rcvd_nbssi_support"
                 checked
@@ -255,9 +246,8 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="nbssi"
                 id="nbssi2"
-                value="option2"
+                value="no"
                 onChange={changeHandler}
                 name="rcvd_nbssi_support"
               />
@@ -277,9 +267,8 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="support"
                 id="support1"
-                value="option1"
+                value="yes"
                 onChange={changeHandler}
                 name="want_nbssi_support"
                 checked
@@ -292,9 +281,8 @@ const StepTwo = () => {
               <input
                 className="form-check-input"
                 type="radio"
-                name="support"
                 id="support2"
-                value="option2"
+                value="no"
                 onChange={changeHandler}
                 name="want_nbssi_support"
               />
