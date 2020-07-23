@@ -57,7 +57,6 @@ const StepTwo = () => {
               </label>
             </div>
           </div>
-          {/* </div> */}
         </fieldset>
 
         <div className="form-group">
@@ -104,7 +103,6 @@ const StepTwo = () => {
         </div>
 
         <fieldset className="form-group">
-          {/* <div className="row"> */}
           <legend className="col-form-label pt-0">
             Are you a member of a trade association in your locality?{" "}
           </legend>
@@ -135,7 +133,6 @@ const StepTwo = () => {
               </label>
             </div>
           </div>
-          {/* </div> */}
         </fieldset>
 
         <fieldset className="form-group">
@@ -170,11 +167,9 @@ const StepTwo = () => {
               </label>
             </div>
           </div>
-          {/* </div> */}
         </fieldset>
 
         <fieldset className="form-group">
-          {/* <div className="row"> */}
           <legend className="col-form-label pt-0">
             Have you received any support from NBSSI?{" "}
           </legend>
@@ -205,11 +200,9 @@ const StepTwo = () => {
               </label>
             </div>
           </div>
-          {/* </div> */}
         </fieldset>
 
         <fieldset className="form-group">
-          {/* <div className="row"> */}
           <legend className="col-form-label  pt-0">
             If no, would you want to receive support from NBSSI?{" "}
           </legend>
@@ -240,11 +233,7 @@ const StepTwo = () => {
               </label>
             </div>
           </div>
-          {/* </div> */}
         </fieldset>
-        {/* <button type="submit" className="btn btn-default">
-          Submit
-        </button> */}
       </form>
     </div>
   );
