@@ -17,12 +17,12 @@ function StepOne() {
           <label for="email">Email address:</label>
           <input type="email" class="form-control" id="email" />
         </div>
-
+        {/* 
         <div class="checkbox">
           <label>
             <input type="checkbox" /> Remember me
           </label>
-        </div>
+        </div> */}
         <button type="submit" class="btn btn-default">
           Submit
         </button>
