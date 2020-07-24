@@ -3,13 +3,14 @@ import React, { createContext, useState} from 'react'
 export const FormContext = createContext()
 
 const FormContextProvider =(props) =>{
-    const [data, setData ] =useState([{
+    const [data, setData ] =useState({
         "trainer_name": "",
         "gender": "",
         "telephone": "",
         "email": "",
         "digital_address": "",
         "business_name": "",
+        "business_location": "",
         "region": "",
         "district":"",
         "registered": "",
@@ -21,31 +22,28 @@ const FormContextProvider =(props) =>{
         "rcvd_nbssi_support": "",
         "want_nbssi_support":"",
         "support_description": "",
-        "years_practing":"",
+        "years_practicing":"",
         "trained_apprentice": "",
         "want_train_apprentice": "",
         "no_apprentices": "",
         "additional_support":"",
         "createdon": ""
-
-
-    }])
-    const addData = ( value)=>{
-        setData([...data], )
-    }
-
+    })
+  
     const changeHandler=(e)=>{
         console.log(e.target.value, 'i see you');
-        setData({[e.target.name]: e.target.value})
+        const value = { [e.target.name]: e.target.value}
+        setData( {...data,...value }  )
     }
 
-    const submitHandler=(e)=>{
+    const handleSubmit=(e)=>{
         e.preventDefault()
-        // setData([...data, ] )
-        console.log(data, "submiting e");
+        console.log(data, 'are these there?');
+        
     }
+
     return (
-        <FormContext.Provider value={{ data, addData, changeHandler, submitHandler}}>
+        <FormContext.Provider value={{ data, changeHandler, handleSubmit}}>
             { props.children }
         </FormContext.Provider>
     )

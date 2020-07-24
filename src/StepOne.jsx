@@ -5,8 +5,8 @@ import "./stepone.css";
 function StepOne() {
   const { changeHandler } = useContext(FormContext);
   return (
-    <div className="container personal-info">
-      <form>
+    <form>
+      <div className="container personal-info">
         <div className="form-group">
           <label htmlFor="name">Name of skilled craft person:</label>
           <input
@@ -82,11 +82,8 @@ function StepOne() {
             onChange={changeHandler}
           />
         </div>
-        {/* <button type="submit" className="btn btn-default">
-          Submit
-        </button> */}
-      </form>
-    </div>
+      </div>
+    </form>
   );
 }
 

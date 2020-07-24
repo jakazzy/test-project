@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { FormContext } from "./context/FormContext";
 
 const StepThree = () => {
-  const { changeHandler, submitHandler } = useContext(FormContext);
+  const { changeHandler, handleSubmit } = useContext(FormContext);
 
   return (
     <div className="container personal-info">
-      <form onSubmit={submitHandler}>
+      <form onSubmit={handleSubmit}>
         <fieldset className="form-group">
           <legend className="col-form-label pt-0">
             Have you trained apprentices before?{" "}
@@ -20,7 +20,6 @@ const StepThree = () => {
                 id="apprentice1"
                 value="yes"
                 onChange={changeHandler}
-                checked
               />
               <label className="form-check-label" htmlFor="apprentice1">
                 Yes
@@ -53,8 +52,7 @@ const StepThree = () => {
                 type="radio"
                 id="train1"
                 value="yes"
-                name="want_trained_apprentice"
-                checked
+                name="want_train_apprentice"
                 onChange={changeHandler}
               />
               <label className="form-check-label" htmlFor="train1">
@@ -67,7 +65,7 @@ const StepThree = () => {
                 type="radio"
                 id="train2"
                 value="no"
-                name="want_trained_apprentice"
+                name="want_train_apprentice"
                 onChange={changeHandler}
               />
               <label className="form-check-label" htmlFor="train2">
@@ -103,7 +101,7 @@ const StepThree = () => {
             onChange={changeHandler}
           />
         </div>
-        <button type="submit" onSubmit={submitHandler}>
+        <button type="submit" onSubmit={handleSubmit}>
           Submit Form
         </button>
       </form>

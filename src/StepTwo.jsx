@@ -6,8 +6,8 @@ const StepTwo = () => {
   const { changeHandler } = useContext(FormContext);
 
   return (
-    <div className="container personal-info">
-      <form>
+    <form>
+      <div className="container personal-info">
         <div className="form-group">
           <label htmlFor="bname">Business Name:</label>
           <input
@@ -25,7 +25,7 @@ const StepTwo = () => {
             className="form-control"
             id="locatn"
             onChange={changeHandler}
-            name="location"
+            name="business_location"
           />
         </div>
         <div className="form-group">
@@ -73,7 +73,6 @@ const StepTwo = () => {
                 value="yes"
                 onChange={changeHandler}
                 name="registered"
-                checked
               />
               <label className="form-check-label" htmlFor="reg1">
                 Yes
@@ -119,7 +118,6 @@ const StepTwo = () => {
                 onChange={changeHandler}
                 name="has_tin"
                 value="yes"
-                checked
               />
               <label className="form-check-label" htmlFor="tin1">
                 Yes
@@ -165,7 +163,6 @@ const StepTwo = () => {
                 onChange={changeHandler}
                 name="association_member"
                 value="yes"
-                checked
               />
               <label className="form-check-label" htmlFor="assoc1">
                 Yes
@@ -188,7 +185,6 @@ const StepTwo = () => {
         </fieldset>
 
         <fieldset className="form-group">
-          {/* <div className="row"> */}
           <legend className="col-form-label  pt-0">
             Do you NVTI certficate?{" "}
           </legend>
@@ -201,7 +197,6 @@ const StepTwo = () => {
                 onChange={changeHandler}
                 name="nvti_cert"
                 value="yes"
-                checked
               />
               <label className="form-check-label" htmlFor="nvti1">
                 Yes
@@ -236,7 +231,6 @@ const StepTwo = () => {
                 value="yes"
                 onChange={changeHandler}
                 name="rcvd_nbssi_support"
-                checked
               />
               <label className="form-check-label" htmlFor="nbssi1">
                 Yes
@@ -271,7 +265,6 @@ const StepTwo = () => {
                 value="yes"
                 onChange={changeHandler}
                 name="want_nbssi_support"
-                checked
               />
               <label className="form-check-label" htmlFor="support1">
                 Yes
@@ -313,11 +306,11 @@ const StepTwo = () => {
             className="form-control"
             id="years"
             onChange={changeHandler}
-            name="years_practing"
+            name="years_practicing"
           />
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 

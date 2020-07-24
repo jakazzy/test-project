@@ -1,23 +1,23 @@
-import React from "react";
-import MultiStep from "react-multistep";
-import StepOne from "./StepOne";
-import StepTwo from "./StepTwo";
-import StepThree from "./StepThree";
-import StepFour from "./StepFour";
+// import React from "react";
+// import MultiStep from "react-multistep";
+// import StepOne from "./StepOne";
+// import StepTwo from "./StepTwo";
+// import StepThree from "./StepThree";
+// import StepFour from "./StepFour";
 
-const Form = () => {
-  const steps = [
-    { name: "StepOne", component: <StepOne /> },
-    { name: "StepTwo", component: <StepTwo /> },
-    { name: "StepThree", component: <StepThree /> },
-    { name: "StepFour", component: <StepFour /> },
-  ];
+// const Form = () => {
+//   const steps = [
+//     { name: "StepOne", component: <StepOne /> },
+//     { name: "StepTwo", component: <StepTwo /> },
+//     { name: "StepThree", component: <StepThree /> },
+//     { name: "StepFour", component: <StepFour /> },
+//   ];
 
-  return (
-    <div>
-      <MultiStep showNavigation={true} steps={steps} />
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       <MultiStep showNavigation={true} steps={steps} />
+//     </div>
+//   );
+// };
 
-export default Form;
+// export default Form;
