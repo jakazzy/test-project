@@ -20,6 +20,7 @@ export const getRegions=async()=>{
       return actualData
     }
 
+    
 export const getDistricts=async(region_code)=>{
     const districtURL = `${process.env.REACT_APP_BASE_URL}webresources/district/wapp/districts/${region_code}`;
     const districts = await axios(districtURL);
