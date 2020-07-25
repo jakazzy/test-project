@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { FormContext } from "./context/FormContext";
-// import Buttons from "./components/button";
 import "./stepone.css";
 
 function StepOne() {
@@ -89,8 +88,11 @@ function StepOne() {
             id="tel"
             name="telephone"
             onChange={changeHandler}
-            ref={register}
+            ref={register({ required: "contact is required" })}
           />
+          {errors.telephone && (
+            <p className="error-message">{errors.telephone.message}</p>
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="email">Email Address:</label>
@@ -100,8 +102,11 @@ function StepOne() {
             name="email"
             id="email"
             onChange={changeHandler}
-            ref={register}
+            ref={register({ required: "email address id required" })}
           />
+          {errors.email && (
+            <p className="error-message">{errors.email.message}</p>
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="address">Ghana Post Digital Address:</label>
@@ -111,8 +116,11 @@ function StepOne() {
             name="digital_address"
             id="address"
             onChange={changeHandler}
-            ref={register}
+            ref={register({ required: "address is required" })}
           />
+          {errors.digital_address && (
+            <p className="error-message">{errors.digital_address.message}</p>
+          )}
         </div>
 
         <div>{/* <input type="submit" value="Continue" /> */}</div>
