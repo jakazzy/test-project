@@ -4,7 +4,7 @@ import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import StepFour from "./StepFour";
-// import FormContextProvider from "./context/FormContext";
+import "./App.css";
 
 const App = () => {
   const steps = [
@@ -16,9 +16,7 @@ const App = () => {
 
   return (
     <div className="container">
-      {/* <FormContextProvider> */}
       <MultiStep showNavigation={true} steps={steps} />
-      {/* </FormContextProvider> */}
     </div>
   );
 };

@@ -7,7 +7,7 @@ const StepThree = () => {
     FormContext
   );
 
-  const { register, handleSubmit, errors } = useForm();
+  const { handleSubmit } = useForm();
   const previous = () =>
     setStepState(compState > 0 ? compState - 1 : compState);
 

@@ -34,8 +34,12 @@ function StepOne() {
             id="name"
             onChange={changeHandler}
             name="trainer_name"
-            ref={register}
+            ref={register({ required: "name is required" })}
           />
+
+          {errors.trainer_name && (
+            <p className="error-message">{errors.trainer_name.message}</p>
+          )}
         </div>
 
         <fieldset className="form-group">
@@ -50,6 +54,7 @@ function StepOne() {
                   id="gridRadios1"
                   value="male"
                   onChange={changeHandler}
+                  ref={register({ required: "gender is required" })}
                 />
                 <label className="form-check-label" htmlFor="male">
                   Male
@@ -63,11 +68,15 @@ function StepOne() {
                   id="gridRadios2"
                   value="female"
                   onChange={changeHandler}
+                  ref={register({ required: "gender is required" })}
                 />
                 <label className="form-check-label" htmlFor="female">
                   Female
                 </label>
               </div>
+              {errors.gender && (
+                <p className="error-message">{errors.gender.message}</p>
+              )}
             </div>
           </div>
         </fieldset>
@@ -80,6 +89,7 @@ function StepOne() {
             id="tel"
             name="telephone"
             onChange={changeHandler}
+            ref={register}
           />
         </div>
         <div className="form-group">
@@ -90,6 +100,7 @@ function StepOne() {
             name="email"
             id="email"
             onChange={changeHandler}
+            ref={register}
           />
         </div>
         <div className="form-group">
@@ -100,6 +111,7 @@ function StepOne() {
             name="digital_address"
             id="address"
             onChange={changeHandler}
+            ref={register}
           />
         </div>
 
