@@ -94,14 +94,22 @@ const StepTwo = () => {
         </div>
         <div className="form-group">
           <label htmlFor="region">Region:</label>
-          <input
-            type="text"
+          <select
             className="form-control"
             id="region"
-            onChange={changeHandler}
             name="region"
             ref={register({ required: "region is required" })}
-          />
+          >
+            {regions.map((region) => (
+              <option
+                key={region.code}
+                onChange={changeHandler}
+                value={region.name}
+              >
+                {region.name}
+              </option>
+            ))}
+          </select>
           {errors.region && (
             <p className="error-message">{errors.region.message}</p>
           )}
