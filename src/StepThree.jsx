@@ -7,7 +7,8 @@ const StepThree = () => {
     FormContext
   );
 
-  const { handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
+
   const previous = () =>
     setStepState(compState > 0 ? compState - 1 : compState);
 
@@ -32,6 +33,10 @@ const StepThree = () => {
                 id="apprentice1"
                 value="yes"
                 onChange={changeHandler}
+                ref={register({
+                  required:
+                    "response on experience training apprentices required",
+                })}
               />
               <label className="form-check-label" htmlFor="apprentice1">
                 Yes
@@ -45,6 +50,10 @@ const StepThree = () => {
                 id="apprentice2"
                 value="no"
                 onChange={changeHandler}
+                ref={register({
+                  required:
+                    "response on experience training apprentices required",
+                })}
               />
               <label className="form-check-label" htmlFor="apprentice2">
                 No
@@ -66,6 +75,7 @@ const StepThree = () => {
                 value="yes"
                 name="want_train_apprentice"
                 onChange={changeHandler}
+                ref={register()}
               />
               <label className="form-check-label" htmlFor="train1">
                 Yes
@@ -79,6 +89,7 @@ const StepThree = () => {
                 value="no"
                 name="want_train_apprentice"
                 onChange={changeHandler}
+                ref={register()}
               />
               <label className="form-check-label" htmlFor="train2">
                 No
@@ -97,6 +108,10 @@ const StepThree = () => {
             id="apprentc"
             name="no_apprentices"
             onChange={changeHandler}
+            ref={register({
+              required:
+                "response on number of apprentices that can be taken required",
+            })}
           />
         </div>
 
@@ -111,6 +126,7 @@ const StepThree = () => {
             id="tr-apprentc"
             name="additional_support"
             onChange={changeHandler}
+            ref={register()}
           />
         </div>
         <div>
@@ -134,5 +150,5 @@ const StepThree = () => {
     </form>
   );
 };
-
+// remeber to do validation especially the numbers, alphanumeric, etc
 export default StepThree;
