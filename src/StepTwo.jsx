@@ -1,10 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FormContext } from "./context/FormContext";
 import { useForm } from "react-hook-form";
 import { getRegions } from "./api/api";
+import { getDistricts } from "./api/api";
 import "./stepone.css";
 
 const StepTwo = () => {
+  const [districts, setDistricts] = useState([]);
+  const [regions, setRegions] = useState([]);
   const { changeHandler, buttonsState, setStepState, compState } = useContext(
     FormContext
   );
@@ -14,12 +17,18 @@ const StepTwo = () => {
     console.log(data, "*******************");
     return setStepState(compState + 1);
   };
+
   const previous = () =>
     setStepState(compState > 0 ? compState - 1 : compState);
 
   useEffect(() => {
     async function fetchData() {
-      const regions = await getRegions();
+      const regionsData = await getRegions();
+      const districtsData = await getDistricts("AH");
+      console.log(regionsData, "***************");
+      console.log(districtsData, "&&&&&&&&&&&&&&&&&&");
+      setDistricts(districtsData);
+      setRegions(regionsData);
     }
     fetchData();
   }, []);
