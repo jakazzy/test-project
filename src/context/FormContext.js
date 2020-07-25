@@ -61,6 +61,7 @@ const getButtonsState = (indx, length) => {
       }
     } else {
       return {
+        
         showPreviousBtn: true,
         showNextBtn: false
       }
