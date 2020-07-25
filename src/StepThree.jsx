@@ -59,6 +59,11 @@ const StepThree = () => {
                 No
               </label>
             </div>
+            {errors.trained_apprentice && (
+              <p className="error-message">
+                {errors.errors.trained_apprentice.message}
+              </p>
+            )}
           </div>
         </fieldset>
 
