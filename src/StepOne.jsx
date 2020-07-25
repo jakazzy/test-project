@@ -7,10 +7,6 @@ function StepOne() {
   const { changeHandler, buttonsState, setStepState, compState } = useContext(
     FormContext
   );
-  // const next = () => {
-  //   console.log("this is you right?");
-  //   return setStepState(compState + 1);
-  // };
 
   const previous = () =>
     setStepState(compState > 0 ? compState - 1 : compState);

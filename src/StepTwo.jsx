@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import axios from "axios";
 import CryptoJS from "crypto-js";
 import { FormContext } from "./context/FormContext";
+import { useForm } from "react-hook-form";
 import "./stepone.css";
 
 const StepTwo = () => {
@@ -9,6 +10,11 @@ const StepTwo = () => {
     FormContext
   );
 
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = (data) => {
+    console.log(data, "*******************");
+    return setStepState(compState + 1);
+  };
   const previous = () =>
     setStepState(compState > 0 ? compState - 1 : compState);
 
@@ -36,7 +42,7 @@ const StepTwo = () => {
   }, []);
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="container personal-info">
         <div className="form-group">
           <label htmlFor="bname">Business Name:</label>
@@ -46,7 +52,11 @@ const StepTwo = () => {
             id="bname"
             name="business_name"
             onChange={changeHandler}
+            ref={register({ required: "business name is required" })}
           />
+          {errors.business_name && (
+            <p className="error-message">{errors.business_name.message}</p>
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="locatn">Location of Business:</label>
@@ -56,7 +66,11 @@ const StepTwo = () => {
             id="locatn"
             onChange={changeHandler}
             name="business_location"
+            ref={register({ required: "business location is required" })}
           />
+          {errors.business_location && (
+            <p className="error-message">{errors.business_location.message}</p>
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="town">Town</label>
@@ -66,7 +80,11 @@ const StepTwo = () => {
             id="town"
             name="town"
             onChange={changeHandler}
+            ref={register({ required: "town is required" })}
           />
+          {errors.town && (
+            <p className="error-message">{errors.town.message}</p>
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="district">District:</label>
@@ -76,7 +94,11 @@ const StepTwo = () => {
             id="district"
             onChange={changeHandler}
             name="district"
+            ref={register({ required: "district is required" })}
           />
+          {errors.district && (
+            <p className="error-message">{errors.district.message}</p>
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="region">Region:</label>
@@ -86,7 +108,11 @@ const StepTwo = () => {
             id="region"
             onChange={changeHandler}
             name="region"
+            ref={register({ required: "region is required" })}
           />
+          {errors.region && (
+            <p className="error-message">{errors.region.message}</p>
+          )}
         </div>
 
         <fieldset className="form-group">
@@ -103,6 +129,9 @@ const StepTwo = () => {
                 value="yes"
                 onChange={changeHandler}
                 name="registered"
+                ref={register({
+                  required: "business registration confirmation is required",
+                })}
               />
               <label className="form-check-label" htmlFor="reg1">
                 Yes
@@ -116,11 +145,17 @@ const StepTwo = () => {
                 value="no"
                 onChange={changeHandler}
                 name="registered"
+                ref={register({
+                  required: "business registration confirmation is required",
+                })}
               />
               <label className="form-check-label" htmlFor="reg2">
                 No
               </label>
             </div>
+            {errors.registered && (
+              <p className="error-message">{errors.registered.message}</p>
+            )}
           </div>
         </fieldset>
 
@@ -132,6 +167,7 @@ const StepTwo = () => {
             id="reg"
             onChange={changeHandler}
             name="registered_no"
+            ref={register()}
           />
         </div>
 
@@ -148,6 +184,9 @@ const StepTwo = () => {
                 onChange={changeHandler}
                 name="has_tin"
                 value="yes"
+                ref={register({
+                  required: "Tin number confirmation is required",
+                })}
               />
               <label className="form-check-label" htmlFor="tin1">
                 Yes
@@ -161,11 +200,17 @@ const StepTwo = () => {
                 onChange={changeHandler}
                 name="has_tin"
                 value="no"
+                ref={register({
+                  required: "Tin number confirmation is required",
+                })}
               />
               <label className="form-check-label" htmlFor="tin2">
                 No
               </label>
             </div>
+            {errors.has_tin && (
+              <p className="error-message">{errors.has_tin.message}</p>
+            )}
           </div>
         </fieldset>
 
@@ -177,7 +222,11 @@ const StepTwo = () => {
             id="tin"
             onChange={changeHandler}
             name="tin_no"
+            ref={register()}
           />
+          {errors.tin_no && (
+            <p className="error-message">{errors.tin_no.message}</p>
+          )}
         </div>
 
         <fieldset className="form-group">
@@ -193,6 +242,10 @@ const StepTwo = () => {
                 onChange={changeHandler}
                 name="association_member"
                 value="yes"
+                ref={register({
+                  required:
+                    "response for trade association member enquiry required",
+                })}
               />
               <label className="form-check-label" htmlFor="assoc1">
                 Yes
@@ -206,11 +259,20 @@ const StepTwo = () => {
                 value="no"
                 onChange={changeHandler}
                 name="association_member"
+                ref={register({
+                  required:
+                    "response for trade association member enquiry required",
+                })}
               />
               <label className="form-check-label" htmlFor="assoc2">
                 No
               </label>
             </div>
+            {errors.association_member && (
+              <p className="error-message">
+                {errors.association_member.message}
+              </p>
+            )}
           </div>
         </fieldset>
 
@@ -227,6 +289,9 @@ const StepTwo = () => {
                 onChange={changeHandler}
                 name="nvti_cert"
                 value="yes"
+                ref={register({
+                  required: "response for NVTI certficate required",
+                })}
               />
               <label className="form-check-label" htmlFor="nvti1">
                 Yes
@@ -240,11 +305,17 @@ const StepTwo = () => {
                 value="no"
                 onChange={changeHandler}
                 name="nvti_cert"
+                ref={register({
+                  required: "response for NVTI certificate required",
+                })}
               />
               <label className="form-check-label" htmlFor="nvti2">
                 No
               </label>
             </div>
+            {errors.nvti_cert && (
+              <p className="error-message">{errors.nvti_cert.message}</p>
+            )}
           </div>
         </fieldset>
 
@@ -261,6 +332,9 @@ const StepTwo = () => {
                 value="yes"
                 onChange={changeHandler}
                 name="rcvd_nbssi_support"
+                ref={register({
+                  required: "response for NBSSI support enquiry required",
+                })}
               />
               <label className="form-check-label" htmlFor="nbssi1">
                 Yes
@@ -274,11 +348,19 @@ const StepTwo = () => {
                 value="no"
                 onChange={changeHandler}
                 name="rcvd_nbssi_support"
+                ref={register({
+                  required: "response for NBSSI support enquiry required",
+                })}
               />
               <label className="form-check-label" htmlFor="nbssi2">
                 No
               </label>
             </div>
+            {errors.rcvd_nbssi_support && (
+              <p className="error-message">
+                {errors.rcvd_nbssi_support.message}
+              </p>
+            )}
           </div>
         </fieldset>
 
@@ -295,6 +377,9 @@ const StepTwo = () => {
                 value="yes"
                 onChange={changeHandler}
                 name="want_nbssi_support"
+                ref={register({
+                  required: "NBSSI support enquiry required",
+                })}
               />
               <label className="form-check-label" htmlFor="support1">
                 Yes
@@ -308,11 +393,19 @@ const StepTwo = () => {
                 value="no"
                 onChange={changeHandler}
                 name="want_nbssi_support"
+                ref={register({
+                  required: "NBSSI support enquiry required",
+                })}
               />
               <label className="form-check-label" htmlFor="support2">
                 No
               </label>
             </div>
+            {errors.want_nbssi_support && (
+              <p className="error-message">
+                {errors.want_nbssi_support.message}
+              </p>
+            )}
           </div>
         </fieldset>
         <div className="form-group">
@@ -325,6 +418,7 @@ const StepTwo = () => {
             id="supp"
             onChange={changeHandler}
             name="support_description"
+            ref={register()}
           />
         </div>
         <div className="form-group">
@@ -337,7 +431,14 @@ const StepTwo = () => {
             id="years"
             onChange={changeHandler}
             name="years_practicing"
+            ref={register({
+              required:
+                "years of experience as a skilled craft person required",
+            })}
           />
+          {errors.years_practicing && (
+            <p className="error-message">{errors.years_practicing.message}</p>
+          )}
         </div>
         <div>
           <button
