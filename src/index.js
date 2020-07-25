@@ -6,10 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import $ from 'jquery';
 // import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import FormContextProvider from "./context/FormContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FormContextProvider>
+     <App />
+    </FormContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
