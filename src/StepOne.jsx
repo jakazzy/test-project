@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FormContext } from "./context/FormContext";
 import "./stepone.css";
+import { getGender } from "./api/api";
 
 function StepOne() {
   const { changeHandler, buttonsState, setStepState, compState } = useContext(
@@ -12,12 +13,20 @@ function StepOne() {
     setStepState(compState > 0 ? compState - 1 : compState);
 
   const { register, handleSubmit, errors } = useForm();
+  const [gen, setGen] = useState([]);
 
   const onSubmit = (data) => {
     console.log(data, "*********************");
     return setStepState(compState + 1);
   };
-
+  useEffect(() => {
+    async function fetchGender() {
+      const gender = await getGender();
+      setGen(gender);
+      console.log(gender);
+    }
+    fetchGender();
+  }, []);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="container personal-info">
@@ -42,32 +51,22 @@ function StepOne() {
             <legend className="col-form-label col-sm-2 pt-0">Gender</legend>
             <div className="col-sm-10">
               <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="gender"
-                  id="gridRadios1"
-                  value="male"
-                  onChange={changeHandler}
-                  ref={register({ required: "gender is required" })}
-                />
-                <label className="form-check-label" htmlFor="male">
-                  Male
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="gender"
-                  id="gridRadios2"
-                  value="female"
-                  onChange={changeHandler}
-                  ref={register({ required: "gender is required" })}
-                />
-                <label className="form-check-label" htmlFor="female">
-                  Female
-                </label>
+                {gen.map((gend) => (
+                  <div key={gend.id}>
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name={gend.type}
+                      id="gridRadios1"
+                      value={gend.name}
+                      onChange={changeHandler}
+                      ref={register({ required: "gender is required" })}
+                    />
+                    <label className="form-check-label" htmlFor="male">
+                      {gend.name}
+                    </label>
+                  </div>
+                ))}
               </div>
               {errors.gender && (
                 <p className="error-message">{errors.gender.message}</p>

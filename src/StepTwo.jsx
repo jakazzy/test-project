@@ -1,11 +1,14 @@
-import React, { useContext, useEffect } from "react";
-import axios from "axios";
-import CryptoJS from "crypto-js";
+import React, { useContext, useEffect, useState } from "react";
 import { FormContext } from "./context/FormContext";
 import { useForm } from "react-hook-form";
+import { getRegions } from "./api/api";
+import { getDistricts } from "./api/api";
+import { data } from "./data/data";
 import "./stepone.css";
 
 const StepTwo = () => {
+  const [districts, setDistricts] = useState([]);
+  const [regions, setRegions] = useState([]);
   const { changeHandler, buttonsState, setStepState, compState } = useContext(
     FormContext
   );
@@ -15,29 +18,26 @@ const StepTwo = () => {
     console.log(data, "*******************");
     return setStepState(compState + 1);
   };
+
   const previous = () =>
     setStepState(compState > 0 ? compState - 1 : compState);
 
+  const changeRegion = async (event) => {
+    console.log(event, "this is it");
+    const reg = data[event.target.value];
+    const currDist = await getDistricts(reg);
+    setDistricts(currDist);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      const regionURL = `${process.env.REACT_APP_BASE_URL}`;
-      const regions = await axios(regionURL);
-      const { data } = regions;
-      var keyHex = CryptoJS.enc.Base64.parse(process.env.REACT_APP_KEY);
-      var decrypted = CryptoJS.DES.decrypt(
-        {
-          ciphertext: CryptoJS.enc.Base64.parse(data),
-        },
-        keyHex,
-        {
-          mode: CryptoJS.mode.ECB,
-          padding: CryptoJS.pad.Pkcs7,
-        }
-      );
-      const actualData = JSON.parse(CryptoJS.enc.Utf8.stringify(decrypted));
-      console.log(actualData, "this is the data");
-    };
+    async function fetchData() {
+      const regionsData = await getRegions();
+      const dist = await getDistricts("AH");
 
+      console.log(regionsData, "***************");
+      // console.log(districtsData, "&&&&&&&&&&&&&&&&&&");
+      setDistricts(dist);
+      setRegions(regionsData);
+    }
     fetchData();
   }, []);
 
@@ -86,35 +86,47 @@ const StepTwo = () => {
             <p className="error-message">{errors.town.message}</p>
           )}
         </div>
-        <div className="form-group">
-          <label htmlFor="district">District:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="district"
-            onChange={changeHandler}
-            name="district"
-            ref={register({ required: "district is required" })}
-          />
-          {errors.district && (
-            <p className="error-message">{errors.district.message}</p>
-          )}
-        </div>
+
         <div className="form-group">
           <label htmlFor="region">Region:</label>
-          <input
-            type="text"
+          <select
             className="form-control"
             id="region"
-            onChange={changeHandler}
             name="region"
             ref={register({ required: "region is required" })}
-          />
+            onChange={changeRegion}
+          >
+            {regions.map((region) => (
+              <option key={region.code} value={region.name} val={region.code}>
+                {region.name}
+              </option>
+            ))}
+          </select>
           {errors.region && (
             <p className="error-message">{errors.region.message}</p>
           )}
         </div>
 
+        <div className="form-group">
+          <label htmlFor="district">District:</label>
+          <select
+            className="form-control"
+            name="district"
+            id="district"
+            ref={register({ required: "district is required" })}
+            onChange={changeHandler}
+          >
+            {districts.map((district) => (
+              <option key={district.id} value={district.name}>
+                {district.name}
+              </option>
+            ))}
+          </select>
+
+          {errors.district && (
+            <p className="error-message">{errors.district.message}</p>
+          )}
+        </div>
         <fieldset className="form-group">
           {/* <div className="row"> */}
           <legend className="col-form-label pt-0">
