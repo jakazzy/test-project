@@ -1,11 +1,30 @@
 import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
 import { FormContext } from "./context/FormContext";
+// import Buttons from "./components/button";
 import "./stepone.css";
 
 function StepOne() {
-  const { changeHandler } = useContext(FormContext);
+  const { changeHandler, buttonsState, setStepState, compState } = useContext(
+    FormContext
+  );
+  // const next = () => {
+  //   console.log("this is you right?");
+  //   return setStepState(compState + 1);
+  // };
+
+  const previous = () =>
+    setStepState(compState > 0 ? compState - 1 : compState);
+
+  const { register, handleSubmit, errors } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data, "*********************");
+    return setStepState(compState + 1);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="container personal-info">
         <div className="form-group">
           <label htmlFor="name">Name of skilled craft person:</label>
@@ -15,6 +34,7 @@ function StepOne() {
             id="name"
             onChange={changeHandler}
             name="trainer_name"
+            ref={register}
           />
         </div>
 
@@ -81,6 +101,25 @@ function StepOne() {
             id="address"
             onChange={changeHandler}
           />
+        </div>
+
+        <div>{/* <input type="submit" value="Continue" /> */}</div>
+        <div>
+          <button
+            style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
+            onClick={previous}
+            type="button"
+          >
+            Prev
+          </button>
+
+          <button
+            style={buttonsState.showNextBtn ? {} : { display: "none" }}
+            // onClick={next}
+            type="submit"
+          >
+            Next
+          </button>
         </div>
       </div>
     </form>

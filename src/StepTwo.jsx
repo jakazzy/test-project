@@ -1,9 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import axios from "axios";
+import CryptoJS from "crypto-js";
 import { FormContext } from "./context/FormContext";
 import "./stepone.css";
 
 const StepTwo = () => {
-  const { changeHandler } = useContext(FormContext);
+  const { changeHandler, buttonsState, setStepState, compState } = useContext(
+    FormContext
+  );
+
+  const previous = () =>
+    setStepState(compState > 0 ? compState - 1 : compState);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const regionURL = `${process.env.REACT_APP_BASE_URL}`;
+      const regions = await axios(regionURL);
+      const { data } = regions;
+      var keyHex = CryptoJS.enc.Base64.parse(process.env.REACT_APP_KEY);
+      var decrypted = CryptoJS.DES.decrypt(
+        {
+          ciphertext: CryptoJS.enc.Base64.parse(data),
+        },
+        keyHex,
+        {
+          mode: CryptoJS.mode.ECB,
+          padding: CryptoJS.pad.Pkcs7,
+        }
+      );
+      const actualData = JSON.parse(CryptoJS.enc.Utf8.stringify(decrypted));
+      console.log(actualData, "this is the data");
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <form>
@@ -308,6 +338,23 @@ const StepTwo = () => {
             onChange={changeHandler}
             name="years_practicing"
           />
+        </div>
+        <div>
+          <button
+            style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
+            onClick={previous}
+            type="button"
+          >
+            Prev
+          </button>
+
+          <button
+            style={buttonsState.showNextBtn ? {} : { display: "none" }}
+            // onClick={next}
+            type="submit"
+          >
+            Next
+          </button>
         </div>
       </div>
     </form>
