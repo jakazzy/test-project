@@ -118,6 +118,9 @@ const StepThree = () => {
                 "response on number of apprentices that can be taken required",
             })}
           />
+          {errors.no_apprentices && (
+            <p className="error-message">{errors.no_apprentices.message}</p>
+          )}
         </div>
 
         <div className="form-group">
