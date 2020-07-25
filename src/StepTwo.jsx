@@ -3,6 +3,7 @@ import { FormContext } from "./context/FormContext";
 import { useForm } from "react-hook-form";
 import { getRegions } from "./api/api";
 import { getDistricts } from "./api/api";
+import { data } from "./data/data";
 import "./stepone.css";
 
 const StepTwo = () => {
@@ -21,13 +22,20 @@ const StepTwo = () => {
   const previous = () =>
     setStepState(compState > 0 ? compState - 1 : compState);
 
+  const changeRegion = async (event) => {
+    console.log(event, "this is it");
+    const reg = data[event.target.value];
+    const currDist = await getDistricts(reg);
+    setDistricts(currDist);
+  };
   useEffect(() => {
     async function fetchData() {
       const regionsData = await getRegions();
-      const districtsData = await getDistricts("AH");
+      const dist = await getDistricts("AH");
+
       console.log(regionsData, "***************");
-      console.log(districtsData, "&&&&&&&&&&&&&&&&&&");
-      setDistricts(districtsData);
+      // console.log(districtsData, "&&&&&&&&&&&&&&&&&&");
+      setDistricts(dist);
       setRegions(regionsData);
     }
     fetchData();
@@ -78,20 +86,7 @@ const StepTwo = () => {
             <p className="error-message">{errors.town.message}</p>
           )}
         </div>
-        <div className="form-group">
-          <label htmlFor="district">District:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="district"
-            onChange={changeHandler}
-            name="district"
-            ref={register({ required: "district is required" })}
-          />
-          {errors.district && (
-            <p className="error-message">{errors.district.message}</p>
-          )}
-        </div>
+
         <div className="form-group">
           <label htmlFor="region">Region:</label>
           <select
@@ -99,13 +94,10 @@ const StepTwo = () => {
             id="region"
             name="region"
             ref={register({ required: "region is required" })}
+            onChange={changeRegion}
           >
             {regions.map((region) => (
-              <option
-                key={region.code}
-                onChange={changeHandler}
-                value={region.name}
-              >
+              <option key={region.code} value={region.name} val={region.code}>
                 {region.name}
               </option>
             ))}
@@ -115,6 +107,26 @@ const StepTwo = () => {
           )}
         </div>
 
+        <div className="form-group">
+          <label htmlFor="district">District:</label>
+          <select
+            className="form-control"
+            name="district"
+            id="district"
+            ref={register({ required: "district is required" })}
+            onChange={changeHandler}
+          >
+            {districts.map((district) => (
+              <option key={district.id} value={district.name}>
+                {district.name}
+              </option>
+            ))}
+          </select>
+
+          {errors.district && (
+            <p className="error-message">{errors.district.message}</p>
+          )}
+        </div>
         <fieldset className="form-group">
           {/* <div className="row"> */}
           <legend className="col-form-label pt-0">
