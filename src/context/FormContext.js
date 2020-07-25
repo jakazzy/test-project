@@ -1,7 +1,6 @@
 import React, { createContext, useState} from 'react'
 
 export const FormContext = createContext()
-
 // manually edit the number of steps here
 const steps = 4
 
