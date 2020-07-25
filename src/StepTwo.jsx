@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from "react";
-import axios from "axios";
-import CryptoJS from "crypto-js";
 import { FormContext } from "./context/FormContext";
 import { useForm } from "react-hook-form";
+import { getRegions } from "./api/api";
 import "./stepone.css";
 
 const StepTwo = () => {
@@ -19,25 +18,9 @@ const StepTwo = () => {
     setStepState(compState > 0 ? compState - 1 : compState);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const regionURL = `${process.env.REACT_APP_BASE_URL}`;
-      const regions = await axios(regionURL);
-      const { data } = regions;
-      var keyHex = CryptoJS.enc.Base64.parse(process.env.REACT_APP_KEY);
-      var decrypted = CryptoJS.DES.decrypt(
-        {
-          ciphertext: CryptoJS.enc.Base64.parse(data),
-        },
-        keyHex,
-        {
-          mode: CryptoJS.mode.ECB,
-          padding: CryptoJS.pad.Pkcs7,
-        }
-      );
-      const actualData = JSON.parse(CryptoJS.enc.Utf8.stringify(decrypted));
-      console.log(actualData, "this is the data");
-    };
-
+    async function fetchData() {
+      const regions = await getRegions();
+    }
     fetchData();
   }, []);
 
