@@ -1,12 +1,24 @@
 import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
 import { FormContext } from "./context/FormContext";
 
 const StepThree = () => {
-  const { changeHandler, handleSubmit } = useContext(FormContext);
+  const { changeHandler, buttonsState, setStepState, compState } = useContext(
+    FormContext
+  );
+
+  const { register, handleSubmit, errors } = useForm();
+  const previous = () =>
+    setStepState(compState > 0 ? compState - 1 : compState);
+
+  const onSubmit = (data) => {
+    console.log(data, "*********************");
+    return setStepState(compState + 1);
+  };
 
   return (
-    <div className="container personal-info">
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="container personal-info">
         <fieldset className="form-group">
           <legend className="col-form-label pt-0">
             Have you trained apprentices before?{" "}
@@ -101,11 +113,25 @@ const StepThree = () => {
             onChange={changeHandler}
           />
         </div>
-        <button type="submit" onSubmit={handleSubmit}>
-          Submit Form
-        </button>
-      </form>
-    </div>
+        <div>
+          <button
+            style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
+            onClick={previous}
+            type="button"
+          >
+            Prev
+          </button>
+
+          <button
+            style={buttonsState.showNextBtn ? {} : { display: "none" }}
+            // onClick={next}
+            type="submit"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </form>
   );
 };
 
