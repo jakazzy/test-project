@@ -142,7 +142,7 @@ const StepThree = () => {
             style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
             onClick={previous}
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary nav-btn"
           >
             Prev
           </button>
@@ -151,7 +151,7 @@ const StepThree = () => {
             style={buttonsState.showNextBtn ? {} : { display: "none" }}
             // onClick={next}
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-primary nav-btn"
           >
             Next
           </button>

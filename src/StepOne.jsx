@@ -38,7 +38,13 @@ function StepOne() {
             id="name"
             onChange={changeHandler}
             name="trainer_name"
-            ref={register({ required: "name is required" })}
+            ref={register({
+              required: "name is required",
+              minLength: {
+                value: 2,
+                message: "Name is too short",
+              },
+            })}
           />
 
           {errors.trainer_name && (
@@ -98,7 +104,7 @@ function StepOne() {
             id="email"
             onChange={changeHandler}
             ref={register({
-              required: "Required",
+              required: "Email is required",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                 message: "invalid email address",
@@ -130,7 +136,7 @@ function StepOne() {
             style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
             onClick={previous}
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary nav-btn"
           >
             Prev
           </button>
@@ -139,7 +145,7 @@ function StepOne() {
             style={buttonsState.showNextBtn ? {} : { display: "none" }}
             // onClick={next}
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-primary nav-btn"
           >
             Next
           </button>
