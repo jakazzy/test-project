@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FormContext } from "./context/FormContext";
 import { useForm } from "react-hook-form";
 import { getRegions } from "./api/api";
-import { getDistricts } from "./api/api";
+import { getDistricts, sendData } from "./api/api";
 import { data } from "./data/data";
 import "./stepone.css";
 
@@ -28,12 +28,14 @@ const StepTwo = () => {
     const currDist = await getDistricts(reg);
     setDistricts(currDist);
   };
+
   useEffect(() => {
     async function fetchData() {
       const regionsData = await getRegions();
       const dist = await getDistricts("AH");
-
-      console.log(regionsData, "***************");
+      const sent = await sendData();
+      // console.log(sent, "this is sent");
+      // console.log(regionsData, "***************");
       // console.log(districtsData, "&&&&&&&&&&&&&&&&&&");
       setDistricts(dist);
       setRegions(regionsData);
