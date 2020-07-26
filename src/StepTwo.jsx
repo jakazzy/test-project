@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FormContext } from "./context/FormContext";
 import { useForm } from "react-hook-form";
 import { getRegions } from "./api/api";
-import { getDistricts, sendData } from "./api/api";
+import { getDistricts } from "./api/api";
 import { data } from "./data/data";
 import "./stepone.css";
 

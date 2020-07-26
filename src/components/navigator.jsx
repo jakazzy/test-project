@@ -50,18 +50,18 @@ const LiClass = (props) => css`
 `;
 
 const Navigator = (props) => {
-  const { compState, setStepState, stylesState } = useContext(FormContext);
+  const { stylesState } = useContext(FormContext);
 
-  const handleOnClick = (evt) => {
-    if (
-      evt.currentTarget.value === props.steps.length - 1 &&
-      compState === props.steps.length - 1
-    ) {
-      setStepState(props.steps.length);
-    } else {
-      setStepState(evt.currentTarget.value);
-    }
-  };
+  // const handleOnClick = (evt) => {
+  //   if (
+  //     evt.currentTarget.value === props.steps.length - 1 &&
+  //     compState === props.steps.length - 1
+  //   ) {
+  //     setStepState(props.steps.length);
+  //   } else {
+  //     setStepState(evt.currentTarget.value);
+  //   }
+  // };
 
   const stepName = (step) => {
     switch (step) {
