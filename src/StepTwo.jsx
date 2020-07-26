@@ -33,7 +33,7 @@ const StepTwo = () => {
     async function fetchData() {
       const regionsData = await getRegions();
       const dist = await getDistricts("AH");
-      const sent = await sendData();
+      // const sent = await sendData();
       // console.log(sent, "this is sent");
       // console.log(regionsData, "***************");
       // console.log(districtsData, "&&&&&&&&&&&&&&&&&&");
@@ -459,6 +459,7 @@ const StepTwo = () => {
             style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
             onClick={previous}
             type="button"
+            className="btn btn-primary"
           >
             Prev
           </button>
@@ -467,6 +468,7 @@ const StepTwo = () => {
             style={buttonsState.showNextBtn ? {} : { display: "none" }}
             // onClick={next}
             type="submit"
+            className="btn btn-primary"
           >
             Next
           </button>
