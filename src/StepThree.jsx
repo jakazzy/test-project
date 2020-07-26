@@ -137,7 +137,7 @@ const StepThree = () => {
             ref={register()}
           />
         </div>
-        <div>
+        <div className="buttons">
           <button
             style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
             onClick={previous}

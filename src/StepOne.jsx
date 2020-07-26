@@ -125,7 +125,7 @@ function StepOne() {
         </div>
 
         <div>{/* <input type="submit" value="Continue" /> */}</div>
-        <div>
+        <div className="buttons">
           <button
             style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
             onClick={previous}

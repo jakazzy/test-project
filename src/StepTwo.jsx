@@ -454,7 +454,7 @@ const StepTwo = () => {
             <p className="error-message">{errors.years_practicing.message}</p>
           )}
         </div>
-        <div>
+        <div className="buttons">
           <button
             style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
             onClick={previous}
