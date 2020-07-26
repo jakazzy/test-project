@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <div>
-      <nav class="navbar navbar-light bg-light shadow-sm">
+      <nav className="navbar navbar-light bg-light shadow-sm">
         <div className="container">
           <span className="navbar-brand mb-0 h1 ">
             Skilled Crafts People Application Form
