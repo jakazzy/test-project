@@ -71,6 +71,7 @@ const getButtonsState = (indx, length) => {
     const [stylesState, setStyles] = useState(getNavStyles(0, steps));
     const [compState, setComp] = useState(0)
     const [buttonsState, setButtons] = useState(getButtonsState(0, steps))
+    const [show, setShow] = useState(true);
 
     const setStepState = (indx) => {
         setStyles(getNavStyles(indx, steps))
@@ -91,7 +92,7 @@ const getButtonsState = (indx, length) => {
     
 
     return (
-        <FormContext.Provider value={{ data, changeHandler, handleSubmit, stylesState, buttonsState, setStepState, compState}}>
+        <FormContext.Provider value={{ data, changeHandler, handleSubmit, stylesState, buttonsState, setStepState, compState, show, setShow}}>
             { props.children }
         </FormContext.Provider>
     )

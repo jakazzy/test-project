@@ -6,7 +6,7 @@
   color: #004369 !important;
 }
 
-button {
+.nav-btn {
   width: 6rem;
   background-color: #00739d !important;
   margin-right: 2rem;
@@ -14,4 +14,14 @@ button {
 
 .buttons {
   margin-bottom: 2rem;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
 }
