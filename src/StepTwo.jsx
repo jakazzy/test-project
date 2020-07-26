@@ -28,12 +28,14 @@ const StepTwo = () => {
     const currDist = await getDistricts(reg);
     setDistricts(currDist);
   };
+
   useEffect(() => {
     async function fetchData() {
       const regionsData = await getRegions();
       const dist = await getDistricts("AH");
-
-      console.log(regionsData, "***************");
+      // const sent = await sendData();
+      // console.log(sent, "this is sent");
+      // console.log(regionsData, "***************");
       // console.log(districtsData, "&&&&&&&&&&&&&&&&&&");
       setDistricts(dist);
       setRegions(regionsData);
@@ -452,11 +454,12 @@ const StepTwo = () => {
             <p className="error-message">{errors.years_practicing.message}</p>
           )}
         </div>
-        <div>
+        <div className="buttons">
           <button
             style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
             onClick={previous}
             type="button"
+            className="btn btn-primary"
           >
             Prev
           </button>
@@ -465,6 +468,7 @@ const StepTwo = () => {
             style={buttonsState.showNextBtn ? {} : { display: "none" }}
             // onClick={next}
             type="submit"
+            className="btn btn-primary"
           >
             Next
           </button>

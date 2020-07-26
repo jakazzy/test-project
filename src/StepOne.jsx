@@ -97,7 +97,13 @@ function StepOne() {
             name="email"
             id="email"
             onChange={changeHandler}
-            ref={register({ required: "email address id required" })}
+            ref={register({
+              required: "Required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "invalid email address",
+              },
+            })}
           />
           {errors.email && (
             <p className="error-message">{errors.email.message}</p>
@@ -119,11 +125,12 @@ function StepOne() {
         </div>
 
         <div>{/* <input type="submit" value="Continue" /> */}</div>
-        <div>
+        <div className="buttons">
           <button
             style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
             onClick={previous}
             type="button"
+            className="btn btn-primary"
           >
             Prev
           </button>
@@ -132,6 +139,7 @@ function StepOne() {
             style={buttonsState.showNextBtn ? {} : { display: "none" }}
             // onClick={next}
             type="submit"
+            className="btn btn-primary"
           >
             Next
           </button>

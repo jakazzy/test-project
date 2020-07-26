@@ -137,11 +137,12 @@ const StepThree = () => {
             ref={register()}
           />
         </div>
-        <div>
+        <div className="buttons">
           <button
             style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
             onClick={previous}
             type="button"
+            className="btn btn-primary"
           >
             Prev
           </button>
@@ -150,6 +151,7 @@ const StepThree = () => {
             style={buttonsState.showNextBtn ? {} : { display: "none" }}
             // onClick={next}
             type="submit"
+            className="btn btn-primary"
           >
             Next
           </button>

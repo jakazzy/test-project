@@ -15,8 +15,17 @@ const App = () => {
   ];
 
   return (
-    <div className="container">
-      <MultiStep showNavigation={true} steps={steps} />
+    <div>
+      <nav className="navbar navbar-light bg-light shadow-sm">
+        <div className="container">
+          <span className="navbar-brand mb-0 h1 ">
+            Skilled Crafts People Application Form
+          </span>
+        </div>
+      </nav>
+      <div className="container">
+        <MultiStep showNavigation={true} steps={steps} />
+      </div>
     </div>
   );
 };

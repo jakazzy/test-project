@@ -1,3 +1,17 @@
 .error-message {
   color: red;
 }
+
+.navbar-light .navbar-brand {
+  color: #004369 !important;
+}
+
+button {
+  width: 6rem;
+  background-color: #00739d !important;
+  margin-right: 2rem;
+}
+
+.buttons {
+  margin-bottom: 2rem;
+}

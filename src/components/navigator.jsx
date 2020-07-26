@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { css, styled, setup } from "goober";
 import { FormContext } from "../context/FormContext";
+import "./navigator.css";
 
 setup(React.createElement);
 
@@ -49,16 +50,29 @@ const LiClass = (props) => css`
 `;
 
 const Navigator = (props) => {
-  const { compState, setStepState, stylesState } = useContext(FormContext);
-  const handleOnClick = (evt) => {
-    console.log("this is the click");
-    if (
-      evt.currentTarget.value === props.steps.length - 1 &&
-      compState === props.steps.length - 1
-    ) {
-      setStepState(props.steps.length);
-    } else {
-      setStepState(evt.currentTarget.value);
+  const { stylesState } = useContext(FormContext);
+
+  // const handleOnClick = (evt) => {
+  //   if (
+  //     evt.currentTarget.value === props.steps.length - 1 &&
+  //     compState === props.steps.length - 1
+  //   ) {
+  //     setStepState(props.steps.length);
+  //   } else {
+  //     setStepState(evt.currentTarget.value);
+  //   }
+  // };
+
+  const stepName = (step) => {
+    switch (step) {
+      case 1:
+        return "Profile";
+      case 2:
+        return "Business Info";
+      case 3:
+        return "Training experience";
+      default:
+        return "Submit form";
     }
   };
 
@@ -66,11 +80,11 @@ const Navigator = (props) => {
     props.steps.map((s, i) => (
       <li
         className={LiClass({ state: stylesState[i] })}
-        onClick={handleOnClick}
+        // onClick={handleOnClick}
         key={i}
         value={i}
       >
-        <span>{i + 1}</span>
+        <span>{stepName(i + 1)}</span>
       </li>
     ));
 
