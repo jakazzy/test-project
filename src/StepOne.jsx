@@ -12,6 +12,7 @@ function StepOne() {
     setStepState,
     compState,
     setData,
+    setItem,
   } = useContext(FormContext);
 
   const previous = () =>
@@ -22,6 +23,7 @@ function StepOne() {
 
   const onSubmit = (result) => {
     setData({ ...data, ...result });
+    setItem("string", { ...data, ...result });
     return setStepState(compState + 1);
   };
   useEffect(() => {

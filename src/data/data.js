@@ -1,7 +1,7 @@
 export const regionData=
         {
-            Ahafo: "AH",
-            Ashanti: "AR",
+            "Ahafo": "AH",
+            "Ashanti": "AR",
             "Bono East": "BE",
             "Bono": "BR",
             "Central": "CR",

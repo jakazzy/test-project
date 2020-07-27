@@ -1,12 +1,13 @@
 import React, { createContext, useState} from 'react'
+import SecureLS from 'secure-ls'
 import {sendData } from '../api/api'
 
 export const FormContext = createContext()
 // manually edit the number of steps here
-const steps = 4
+const steps = 3
 
 const FormContextProvider =(props) =>{
-
+  const ls = new SecureLS({encodingType: 'aes', encryptionSecret: process.env.REACT_APP_KEY})
     const [data, setData ] =useState({
         "trainer_name": "",
         "gender": "",
@@ -35,7 +36,6 @@ const FormContextProvider =(props) =>{
     })
 
     const addTrainer = async()=>{
-      console.log("you triggered");
      return await sendData(data)
     }
 
@@ -89,13 +89,31 @@ const getButtonsState = (indx, length) => {
         // setData( {...data,...value }  )
     }
 
+    const setItem =(key, value)=>{
+      ls.set(key, {data: value})
+    }
+  
+    const getItem =(key)=>{
+      const string = ls.get(key)
+      return string
+    }
+
+    const getAllKeys=()=>{
+      const data = ls.getAllKeys()
+      return data
+    }
+
+    const clearAll=()=>{
+      ls.clear()
+    }
+
     const handleSubmit=(e)=>{
         e.preventDefault()
     }
     
 
     return (
-        <FormContext.Provider value={{ data, setData, changeHandler, handleSubmit, stylesState, buttonsState, setStepState, compState, show, setShow, addTrainer}}>
+        <FormContext.Provider value={{ setItem, getItem, getAllKeys, clearAll, data, setData, changeHandler, handleSubmit, stylesState, buttonsState, setStepState, compState, show, setShow, addTrainer}}>
             { props.children }
         </FormContext.Provider>
     )

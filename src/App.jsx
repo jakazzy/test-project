@@ -1,22 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import MultiStep from "./react-multistep";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
-import StepFour from "./StepFour";
 import Modal from "./Modal";
 import { FormContext } from "./context/FormContext";
 import "./App.css";
 
 const App = () => {
-  const { show } = useContext(FormContext);
+  const { show, getItem, setData, setShow } = useContext(FormContext);
 
   const steps = [
     { name: "StepOne", component: <StepOne /> },
     { name: "StepTwo", component: <StepTwo /> },
     { name: "StepThree", component: <StepThree /> },
-    { name: "StepFour", component: <StepFour /> },
   ];
+
+  let lsData;
+  useEffect(() => {
+    // eslint-disable-next-line
+    lsData = getItem("string");
+    if (lsData) {
+      setData({ ...lsData.data });
+      setShow(false);
+    }
+  }, [lsData]);
 
   return (
     <div>

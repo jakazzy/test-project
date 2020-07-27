@@ -15,7 +15,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.0.8",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "secure-ls": "^1.2.6",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "csstype": "2.6.11",

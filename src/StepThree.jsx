@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import swal from "sweetalert";
 import { FormContext } from "./context/FormContext";
 
 const StepThree = () => {
@@ -11,6 +12,8 @@ const StepThree = () => {
     setStepState,
     compState,
     addTrainer,
+    setItem,
+    clearAll,
   } = useContext(FormContext);
 
   const { register, handleSubmit, errors } = useForm();
@@ -20,8 +23,16 @@ const StepThree = () => {
 
   const onSubmit = (result) => {
     setData({ ...data, ...result });
+    setItem("string", { ...data, ...result });
     const send = async () => await addTrainer();
+    clearAll();
     send();
+    swal({
+      title: "Good job!",
+      text: "Form has been successfully submited!",
+      icon: "success",
+    });
+
     return setStepState(compState + 1);
   };
 
@@ -142,16 +153,17 @@ const StepThree = () => {
             What additional support would you need from NBSSI to be able to
             train apprentices?:
           </label>
-          <input
+          <textarea
             type="text"
             className="form-control"
+            rows="3"
             id="tr-apprentc"
             name="additional_support"
             onChange={changeHandler}
             placeholder="additional support"
             ref={register()}
             defaultValue={data.additional_support}
-          />
+          ></textarea>
         </div>
         <div className="buttons">
           <button
