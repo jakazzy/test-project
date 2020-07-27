@@ -165,11 +165,10 @@ const StepThree = () => {
 
           <button
             style={buttonsState.showNextBtn ? {} : { display: "none" }}
-            // onClick={next}
             type="submit"
             className="btn btn-primary nav-btn"
           >
-            Next
+            Submit
           </button>
         </div>
       </div>
