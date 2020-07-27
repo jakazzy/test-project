@@ -11,6 +11,8 @@ const StepThree = () => {
     setStepState,
     compState,
     addTrainer,
+    setItem,
+    clearAll,
   } = useContext(FormContext);
 
   const { register, handleSubmit, errors } = useForm();
@@ -20,8 +22,11 @@ const StepThree = () => {
 
   const onSubmit = (result) => {
     setData({ ...data, ...result });
+    setItem("string", { ...data, ...result });
     const send = async () => await addTrainer();
+    clearAll();
     send();
+
     return setStepState(compState + 1);
   };
 

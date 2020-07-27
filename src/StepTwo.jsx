@@ -15,11 +15,13 @@ const StepTwo = () => {
     buttonsState,
     setStepState,
     compState,
+    setItem,
   } = useContext(FormContext);
 
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (result) => {
     setData({ ...data, ...result });
+    setItem("string", { ...data, ...result });
     return setStepState(compState + 1);
   };
 
