@@ -1,4 +1,5 @@
 import React, { createContext, useState} from 'react'
+import {sendData } from '../api/api'
 
 export const FormContext = createContext()
 // manually edit the number of steps here
@@ -32,6 +33,10 @@ const FormContextProvider =(props) =>{
         "additional_support":"",
         "createdon": ""
     })
+
+    const addTrainer = async()=>{
+      await sendData(data)
+    }
 
     const getNavStyles = (indx, length) => {
         let styles = []
@@ -92,7 +97,7 @@ const getButtonsState = (indx, length) => {
     
 
     return (
-        <FormContext.Provider value={{ data, changeHandler, handleSubmit, stylesState, buttonsState, setStepState, compState, show, setShow}}>
+        <FormContext.Provider value={{ data, changeHandler, handleSubmit, stylesState, buttonsState, setStepState, compState, show, setShow, addTrainer}}>
             { props.children }
         </FormContext.Provider>
     )
