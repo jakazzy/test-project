@@ -3,7 +3,6 @@ import MultiStep from "./react-multistep";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
-import StepFour from "./StepFour";
 import Modal from "./Modal";
 import { FormContext } from "./context/FormContext";
 import "./App.css";
