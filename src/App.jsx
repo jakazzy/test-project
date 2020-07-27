@@ -17,9 +17,9 @@ const App = () => {
     { name: "StepThree", component: <StepThree /> },
     { name: "StepFour", component: <StepFour /> },
   ];
+
   let lsData;
   useEffect(() => {
-    // clearAll();
     lsData = getItem("string");
     if (lsData) {
       setData({ ...lsData.data });
