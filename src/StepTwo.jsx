@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { FormContext } from "./context/FormContext";
 import { useForm } from "react-hook-form";
-import { getRegions } from "./api/api";
-import { getDistricts } from "./api/api";
+import { getRegions, getDistricts } from "./api/api";
 import { regionData } from "./data/data";
 import "./stepone.css";
 
@@ -11,6 +10,7 @@ const StepTwo = () => {
   const [regions, setRegions] = useState([]);
   const {
     data,
+    setData,
     changeHandler,
     buttonsState,
     setStepState,
@@ -18,8 +18,8 @@ const StepTwo = () => {
   } = useContext(FormContext);
 
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => {
-    console.log(data, "*******************");
+  const onSubmit = (result) => {
+    setData({ ...data, ...result });
     return setStepState(compState + 1);
   };
 
@@ -27,7 +27,6 @@ const StepTwo = () => {
     setStepState(compState > 0 ? compState - 1 : compState);
 
   const changeRegion = async (event) => {
-    console.log(event, "this is it");
     const reg = regionData[event.target.value];
     const currDist = await getDistricts(reg);
     setDistricts(currDist);
@@ -37,10 +36,6 @@ const StepTwo = () => {
     async function fetchData() {
       const regionsData = await getRegions();
       const dist = await getDistricts("AH");
-      // const sent = await sendData();
-      // console.log(sent, "this is sent");
-      // console.log(regionsData, "***************");
-      // console.log(districtsData, "&&&&&&&&&&&&&&&&&&");
       setDistricts(dist);
       setRegions(regionsData);
     }

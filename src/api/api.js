@@ -60,43 +60,18 @@ export const getGender=async()=>{
 }
 
 
-export const sendData =()=>{
-  const data= [
-    {code: "AH", name: "Ahafo", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "AR", name: "Ashanti", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "BE", name: "Bono East", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "BR", name: "Bono", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "CR", name: "Central", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "ER", name: "Eastern", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "GA", name: "Greater Accra", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "NE", name: "North East", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "NR", name: "Northern", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "OR", name: "Oti", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "SR", name: "Savanna", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "UE", name: "Upper East", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "UW", name: "Upper West", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "VR", name: "Volta", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "WN", name: "Western North", country: "233", createdby: "admin", createdon: "May 12, 2020"},
-    {code: "WR", name: "Western", country: "233", createdby: "admin", createdon: "May 12, 2020"}
-  ]
-  
-  const actualData = CryptoJS.enc.Utf8.parse(data)
-  // const met = CryptoJS.enc.Base64.stringify(actualData)
-  var keyHex = process.env.REACT_APP_KEY 
-  var encrypted = CryptoJS.DES.encrypt(
-        {
-          ciphertext: CryptoJS.enc.Base64.stringify(actualData),
-    },
-    keyHex,
-    {
-          mode: CryptoJS.mode.ECB,
-          padding: CryptoJS.pad.Pkcs7,
-        }
-      );
-    console.log(encrypted,'heya')
-    return encrypted   
-  // console.log(met,'heya')
-  // console.log(keyHex,'heya')
+export const sendData =(data)=>{ 
+  console.log(data);
+//   const keyHex = CryptoJS.enc.Base64.parse(process.env.REACT_APP_KEY);
+//  let encrypted = CryptoJS.DES.encrypt(JSON.stringify(data), keyHex, {
+//     mode: CryptoJS.mode.ECB,
+//     padding: CryptoJS.pad.Pkcs7
+// });
+// encrypted= encrypted.toString(); 
+// const url=`${process.env.REACT_APP_BASE_URL}webresources/scp/wapp/scptrainer`
+// axios.post(url, {data: encrypted}) 
+// .catch((error)=>{
+//   console.error(error);
+// })
+
 }
-// webresources/district/wapp/districts/:region_code
-// webresources/dropdown/wapp/dropdowns/gender

@@ -1,4 +1,5 @@
 import React, { createContext, useState} from 'react'
+import {sendData } from '../api/api'
 
 export const FormContext = createContext()
 // manually edit the number of steps here
@@ -32,6 +33,11 @@ const FormContextProvider =(props) =>{
         "additional_support":"",
         "createdon": ""
     })
+
+    const addTrainer = async()=>{
+      console.log("you triggered");
+     return await sendData(data)
+    }
 
     const getNavStyles = (indx, length) => {
         let styles = []
@@ -79,20 +85,17 @@ const getButtonsState = (indx, length) => {
         setButtons(getButtonsState(indx, steps))
       }
     const changeHandler=(e)=>{
-        // console.log(e.target.value, 'i see you');
-        const value = { [e.target.name]: e.target.value}
-        setData( {...data,...value }  )
+        // const value = { [e.target.name]: e.target.value}
+        // setData( {...data,...value }  )
     }
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        // console.log(data, 'are these there?');
-        
     }
     
 
     return (
-        <FormContext.Provider value={{ data, changeHandler, handleSubmit, stylesState, buttonsState, setStepState, compState, show, setShow}}>
+        <FormContext.Provider value={{ data, setData, changeHandler, handleSubmit, stylesState, buttonsState, setStepState, compState, show, setShow, addTrainer}}>
             { props.children }
         </FormContext.Provider>
     )
