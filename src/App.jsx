@@ -15,7 +15,6 @@ const App = () => {
     { name: "StepOne", component: <StepOne /> },
     { name: "StepTwo", component: <StepTwo /> },
     { name: "StepThree", component: <StepThree /> },
-    { name: "StepFour", component: <StepFour /> },
   ];
 
   let lsData;

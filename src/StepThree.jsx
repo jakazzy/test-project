@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import swal from "sweetalert";
 import { FormContext } from "./context/FormContext";
 
 const StepThree = () => {
@@ -26,6 +27,11 @@ const StepThree = () => {
     const send = async () => await addTrainer();
     clearAll();
     send();
+    swal({
+      title: "Good job!",
+      text: "Form has been successfully submited!",
+      icon: "success",
+    });
 
     return setStepState(compState + 1);
   };
