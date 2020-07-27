@@ -2,7 +2,8 @@
   color: red;
 }
 
-.navbar-light .navbar-brand {
+.navbar-light .navbar-brand,
+.modal-title {
   color: #004369 !important;
 }
 

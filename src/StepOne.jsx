@@ -5,9 +5,13 @@ import "./stepone.css";
 import { getGender } from "./api/api";
 
 function StepOne() {
-  const { changeHandler, buttonsState, setStepState, compState } = useContext(
-    FormContext
-  );
+  const {
+    data,
+    changeHandler,
+    buttonsState,
+    setStepState,
+    compState,
+  } = useContext(FormContext);
 
   const previous = () =>
     setStepState(compState > 0 ? compState - 1 : compState);
@@ -45,6 +49,7 @@ function StepOne() {
                 message: "Name is too short",
               },
             })}
+            defaultValue={data.trainer_name}
           />
 
           {errors.trainer_name && (
@@ -67,8 +72,9 @@ function StepOne() {
                       value={gend.name}
                       onChange={changeHandler}
                       ref={register({ required: "gender is required" })}
+                      defaultValue={data[`${gend.type}`]}
                     />
-                    <label className="form-check-label" htmlFor="male">
+                    <label className="form-check-label" htmlFor={gend.name}>
                       {gend.name}
                     </label>
                   </div>
@@ -90,6 +96,7 @@ function StepOne() {
             name="telephone"
             onChange={changeHandler}
             ref={register({ required: "contact is required" })}
+            defaultValue={data.telephone}
           />
           {errors.telephone && (
             <p className="error-message">{errors.telephone.message}</p>
@@ -110,6 +117,7 @@ function StepOne() {
                 message: "invalid email address",
               },
             })}
+            defaultValue={data.email}
           />
           {errors.email && (
             <p className="error-message">{errors.email.message}</p>
@@ -124,6 +132,7 @@ function StepOne() {
             id="address"
             onChange={changeHandler}
             ref={register({ required: "address is required" })}
+            defaultValue={data["digital_address"]}
           />
           {errors.digital_address && (
             <p className="error-message">{errors.digital_address.message}</p>
