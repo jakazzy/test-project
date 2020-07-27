@@ -3,10 +3,14 @@
 }
 
 .navbar-light .navbar-brand,
-.modal-title {
+.modal-title,
+.success-text {
   color: #004369 !important;
 }
 
+.display {
+  font-size: 2.5rem !important;
+}
 .nav-btn {
   width: 6rem;
   background-color: #00739d !important;
