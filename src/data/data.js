@@ -1,4 +1,4 @@
-export const data=
+export const regionData=
         {
             Ahafo: "AH",
             Ashanti: "AR",

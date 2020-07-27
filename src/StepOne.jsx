@@ -40,6 +40,7 @@ function StepOne() {
             type="text"
             className="form-control"
             id="name"
+            placeholder="Name"
             onChange={changeHandler}
             name="trainer_name"
             ref={register({
@@ -72,7 +73,7 @@ function StepOne() {
                       value={gend.name}
                       onChange={changeHandler}
                       ref={register({ required: "gender is required" })}
-                      defaultValue={data[`${gend.type}`]}
+                      defaultChecked={data[`${gend.name}`]}
                     />
                     <label className="form-check-label" htmlFor={gend.name}>
                       {gend.name}
@@ -94,6 +95,7 @@ function StepOne() {
             className="form-control"
             id="tel"
             name="telephone"
+            placeholder="Telephone number"
             onChange={changeHandler}
             ref={register({ required: "contact is required" })}
             defaultValue={data.telephone}
@@ -108,6 +110,7 @@ function StepOne() {
             type="email"
             className="form-control"
             name="email"
+            placeholder="email"
             id="email"
             onChange={changeHandler}
             ref={register({
@@ -130,6 +133,7 @@ function StepOne() {
             className="form-control"
             name="digital_address"
             id="address"
+            placeholder="Digital address"
             onChange={changeHandler}
             ref={register({ required: "address is required" })}
             defaultValue={data["digital_address"]}

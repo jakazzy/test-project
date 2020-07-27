@@ -3,15 +3,19 @@ import { FormContext } from "./context/FormContext";
 import { useForm } from "react-hook-form";
 import { getRegions } from "./api/api";
 import { getDistricts } from "./api/api";
-import { data } from "./data/data";
+import { regionData } from "./data/data";
 import "./stepone.css";
 
 const StepTwo = () => {
   const [districts, setDistricts] = useState([]);
   const [regions, setRegions] = useState([]);
-  const { changeHandler, buttonsState, setStepState, compState } = useContext(
-    FormContext
-  );
+  const {
+    data,
+    changeHandler,
+    buttonsState,
+    setStepState,
+    compState,
+  } = useContext(FormContext);
 
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
@@ -24,7 +28,7 @@ const StepTwo = () => {
 
   const changeRegion = async (event) => {
     console.log(event, "this is it");
-    const reg = data[event.target.value];
+    const reg = regionData[event.target.value];
     const currDist = await getDistricts(reg);
     setDistricts(currDist);
   };
@@ -53,8 +57,10 @@ const StepTwo = () => {
             className="form-control"
             id="bname"
             name="business_name"
+            placeholder="Business name "
             onChange={changeHandler}
             ref={register({ required: "business name is required" })}
+            defaultValue={data.business_name}
           />
           {errors.business_name && (
             <p className="error-message">{errors.business_name.message}</p>
@@ -66,9 +72,11 @@ const StepTwo = () => {
             type="text"
             className="form-control"
             id="locatn"
+            placeholder="Business location"
             onChange={changeHandler}
             name="business_location"
             ref={register({ required: "business location is required" })}
+            defaultValue={data.business_location}
           />
           {errors.business_location && (
             <p className="error-message">{errors.business_location.message}</p>
@@ -81,8 +89,10 @@ const StepTwo = () => {
             className="form-control"
             id="town"
             name="town"
+            placeholder="Town"
             onChange={changeHandler}
             ref={register({ required: "town is required" })}
+            defaultValue={data.town}
           />
           {errors.town && (
             <p className="error-message">{errors.town.message}</p>
@@ -95,7 +105,9 @@ const StepTwo = () => {
             className="form-control"
             id="region"
             name="region"
+            placeholder="Region"
             ref={register({ required: "region is required" })}
+            defaultValue={data.region}
             onChange={changeRegion}
           >
             {regions.map((region) => (
@@ -114,9 +126,11 @@ const StepTwo = () => {
           <select
             className="form-control"
             name="district"
+            placeholder="district"
             id="district"
             ref={register({ required: "district is required" })}
             onChange={changeHandler}
+            defaultValue={data.district}
           >
             {districts.map((district) => (
               <option key={district.id} value={district.name}>
@@ -146,6 +160,7 @@ const StepTwo = () => {
                 ref={register({
                   required: "business registration confirmation is required",
                 })}
+                defaultChecked={data.registered}
               />
               <label className="form-check-label" htmlFor="reg1">
                 Yes
@@ -156,12 +171,13 @@ const StepTwo = () => {
                 className="form-check-input"
                 type="radio"
                 id="reg2"
-                value="no"
+                // value="no"
                 onChange={changeHandler}
                 name="registered"
                 ref={register({
                   required: "business registration confirmation is required",
                 })}
+                defaultChecked={data.registered}
               />
               <label className="form-check-label" htmlFor="reg2">
                 No
@@ -182,6 +198,8 @@ const StepTwo = () => {
             onChange={changeHandler}
             name="registered_no"
             ref={register()}
+            defaultValue={data.registered_no}
+            placeholder="registration number"
           />
         </div>
 
@@ -201,6 +219,7 @@ const StepTwo = () => {
                 ref={register({
                   required: "Tin number confirmation is required",
                 })}
+                defaultChecked={data.has_tin}
               />
               <label className="form-check-label" htmlFor="tin1">
                 Yes
@@ -217,6 +236,7 @@ const StepTwo = () => {
                 ref={register({
                   required: "Tin number confirmation is required",
                 })}
+                defaultChecked={data.has_tin}
               />
               <label className="form-check-label" htmlFor="tin2">
                 No
@@ -234,9 +254,11 @@ const StepTwo = () => {
             type="text"
             className="form-control"
             id="tin"
+            placeholder="tin number"
             onChange={changeHandler}
             name="tin_no"
             ref={register()}
+            defaultValue={data.tin_no}
           />
           {errors.tin_no && (
             <p className="error-message">{errors.tin_no.message}</p>
@@ -260,6 +282,7 @@ const StepTwo = () => {
                   required:
                     "response for trade association member enquiry required",
                 })}
+                defaultChecked={data.association_member}
               />
               <label className="form-check-label" htmlFor="assoc1">
                 Yes
@@ -277,6 +300,7 @@ const StepTwo = () => {
                   required:
                     "response for trade association member enquiry required",
                 })}
+                defaultChecked={data.association_member}
               />
               <label className="form-check-label" htmlFor="assoc2">
                 No
@@ -306,6 +330,7 @@ const StepTwo = () => {
                 ref={register({
                   required: "response for NVTI certficate required",
                 })}
+                defaultChecked={data.nvti_cert}
               />
               <label className="form-check-label" htmlFor="nvti1">
                 Yes
@@ -322,6 +347,7 @@ const StepTwo = () => {
                 ref={register({
                   required: "response for NVTI certificate required",
                 })}
+                defaultChecked={data.nvti_cert}
               />
               <label className="form-check-label" htmlFor="nvti2">
                 No
@@ -349,6 +375,7 @@ const StepTwo = () => {
                 ref={register({
                   required: "response for NBSSI support enquiry required",
                 })}
+                defaultChecked={data.rcvd_nbssi_support}
               />
               <label className="form-check-label" htmlFor="nbssi1">
                 Yes
@@ -365,6 +392,7 @@ const StepTwo = () => {
                 ref={register({
                   required: "response for NBSSI support enquiry required",
                 })}
+                defaultChecked={data.rcvd_nbssi_support}
               />
               <label className="form-check-label" htmlFor="nbssi2">
                 No
@@ -394,6 +422,7 @@ const StepTwo = () => {
                 ref={register({
                   required: "NBSSI support enquiry required",
                 })}
+                defaultChecked={data.want_nbssi_support}
               />
               <label className="form-check-label" htmlFor="support1">
                 Yes
@@ -410,6 +439,7 @@ const StepTwo = () => {
                 ref={register({
                   required: "NBSSI support enquiry required",
                 })}
+                defaultChecked={data.want_nbssi_support}
               />
               <label className="form-check-label" htmlFor="support2">
                 No
@@ -433,6 +463,7 @@ const StepTwo = () => {
             onChange={changeHandler}
             name="support_description"
             ref={register()}
+            defaultValue={data.support_description}
           />
         </div>
         <div className="form-group">
@@ -445,10 +476,12 @@ const StepTwo = () => {
             id="years"
             onChange={changeHandler}
             name="years_practicing"
+            placeholder="years of experience"
             ref={register({
               required:
                 "years of experience as a skilled craft person required",
             })}
+            defaultValue={data.years_practicing}
           />
           {errors.years_practicing && (
             <p className="error-message">{errors.years_practicing.message}</p>
