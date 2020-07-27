@@ -95,9 +95,15 @@ function StepOne() {
             className="form-control"
             id="tel"
             name="telephone"
-            placeholder="Telephone number"
+            placeholder="Telephone number eg. 057xxxxxxx"
             onChange={changeHandler}
-            ref={register({ required: "contact is required" })}
+            ref={register({
+              required: "contact is required",
+              pattern: {
+                value: /^(([2][3][3])|[0])?\d{9}$/i,
+                message: "Invalid phone number",
+              },
+            })}
             defaultValue={data.telephone}
           />
           {errors.telephone && (
