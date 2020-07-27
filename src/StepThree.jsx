@@ -3,9 +3,13 @@ import { useForm } from "react-hook-form";
 import { FormContext } from "./context/FormContext";
 
 const StepThree = () => {
-  const { changeHandler, buttonsState, setStepState, compState } = useContext(
-    FormContext
-  );
+  const {
+    data,
+    changeHandler,
+    buttonsState,
+    setStepState,
+    compState,
+  } = useContext(FormContext);
 
   const { register, handleSubmit, errors } = useForm();
 
@@ -37,6 +41,7 @@ const StepThree = () => {
                   required:
                     "response on experience training apprentices required",
                 })}
+                defaultChecked={data.trained_apprentice}
               />
               <label className="form-check-label" htmlFor="apprentice1">
                 Yes
@@ -54,6 +59,7 @@ const StepThree = () => {
                   required:
                     "response on experience training apprentices required",
                 })}
+                defaultChecked={data.trained_apprentice}
               />
               <label className="form-check-label" htmlFor="apprentice2">
                 No
@@ -81,6 +87,7 @@ const StepThree = () => {
                 name="want_train_apprentice"
                 onChange={changeHandler}
                 ref={register()}
+                defaultChecked={data.want_train_apprentice}
               />
               <label className="form-check-label" htmlFor="train1">
                 Yes
@@ -95,6 +102,7 @@ const StepThree = () => {
                 name="want_train_apprentice"
                 onChange={changeHandler}
                 ref={register()}
+                defaultChecked={data.want_train_apprentice}
               />
               <label className="form-check-label" htmlFor="train2">
                 No
@@ -111,12 +119,14 @@ const StepThree = () => {
             type="number"
             className="form-control"
             id="apprentc"
+            placeholder="Number of apprentices"
             name="no_apprentices"
             onChange={changeHandler}
             ref={register({
               required:
                 "response on number of apprentices that can be taken required",
             })}
+            defaultValue={data.no_apprentices}
           />
           {errors.no_apprentices && (
             <p className="error-message">{errors.no_apprentices.message}</p>
@@ -134,7 +144,9 @@ const StepThree = () => {
             id="tr-apprentc"
             name="additional_support"
             onChange={changeHandler}
+            placeholder="additional support"
             ref={register()}
+            defaultValue={data.additional_support}
           />
         </div>
         <div className="buttons">

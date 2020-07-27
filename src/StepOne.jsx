@@ -5,9 +5,13 @@ import "./stepone.css";
 import { getGender } from "./api/api";
 
 function StepOne() {
-  const { changeHandler, buttonsState, setStepState, compState } = useContext(
-    FormContext
-  );
+  const {
+    data,
+    changeHandler,
+    buttonsState,
+    setStepState,
+    compState,
+  } = useContext(FormContext);
 
   const previous = () =>
     setStepState(compState > 0 ? compState - 1 : compState);
@@ -36,6 +40,7 @@ function StepOne() {
             type="text"
             className="form-control"
             id="name"
+            placeholder="Name"
             onChange={changeHandler}
             name="trainer_name"
             ref={register({
@@ -45,6 +50,7 @@ function StepOne() {
                 message: "Name is too short",
               },
             })}
+            defaultValue={data.trainer_name}
           />
 
           {errors.trainer_name && (
@@ -67,8 +73,9 @@ function StepOne() {
                       value={gend.name}
                       onChange={changeHandler}
                       ref={register({ required: "gender is required" })}
+                      defaultChecked={data[`${gend.name}`]}
                     />
-                    <label className="form-check-label" htmlFor="male">
+                    <label className="form-check-label" htmlFor={gend.name}>
                       {gend.name}
                     </label>
                   </div>
@@ -88,8 +95,10 @@ function StepOne() {
             className="form-control"
             id="tel"
             name="telephone"
+            placeholder="Telephone number"
             onChange={changeHandler}
             ref={register({ required: "contact is required" })}
+            defaultValue={data.telephone}
           />
           {errors.telephone && (
             <p className="error-message">{errors.telephone.message}</p>
@@ -101,6 +110,7 @@ function StepOne() {
             type="email"
             className="form-control"
             name="email"
+            placeholder="email"
             id="email"
             onChange={changeHandler}
             ref={register({
@@ -110,6 +120,7 @@ function StepOne() {
                 message: "invalid email address",
               },
             })}
+            defaultValue={data.email}
           />
           {errors.email && (
             <p className="error-message">{errors.email.message}</p>
@@ -122,8 +133,10 @@ function StepOne() {
             className="form-control"
             name="digital_address"
             id="address"
+            placeholder="Digital address"
             onChange={changeHandler}
             ref={register({ required: "address is required" })}
+            defaultValue={data["digital_address"]}
           />
           {errors.digital_address && (
             <p className="error-message">{errors.digital_address.message}</p>

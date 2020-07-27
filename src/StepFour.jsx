@@ -2,8 +2,10 @@ import React from "react";
 
 const StepFour = () => {
   return (
-    <div>
-      <p>Form submitted Successfully</p>
+    <div className="container">
+      <p className="text-center success-text font-weight-bold display-4">
+        Form submitted Successfully
+      </p>
     </div>
   );
 };
