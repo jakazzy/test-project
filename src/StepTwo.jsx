@@ -188,16 +188,17 @@ const StepTwo = () => {
 
         <div className="form-group">
           <label htmlFor="reg">If yes state your registration number</label>
-          <input
+          <textarea
             type="text"
             className="form-control"
             id="reg"
+            rows="3"
             onChange={changeHandler}
             name="registered_no"
             ref={register()}
             defaultValue={data.registered_no}
             placeholder="registration number"
-          />
+          ></textarea>
         </div>
 
         <fieldset className="form-group">
@@ -247,16 +248,17 @@ const StepTwo = () => {
 
         <div className="form-group">
           <label htmlFor="tin">If yes, state your business TIN number</label>
-          <input
+          <textarea
             type="text"
             className="form-control"
+            rows="3"
             id="tin"
             placeholder="tin number"
             onChange={changeHandler}
             name="tin_no"
             ref={register()}
             defaultValue={data.tin_no}
-          />
+          ></textarea>
           {errors.tin_no && (
             <p className="error-message">{errors.tin_no.message}</p>
           )}
@@ -453,15 +455,16 @@ const StepTwo = () => {
           <label htmlFor="supp">
             If yes, what kind of support do you need from NBSSI:
           </label>
-          <input
+          <textarea
             type="text"
             className="form-control"
             id="supp"
+            rows="3"
             onChange={changeHandler}
             name="support_description"
             ref={register()}
             defaultValue={data.support_description}
-          />
+          ></textarea>
         </div>
         <div className="form-group">
           <label htmlFor="years">

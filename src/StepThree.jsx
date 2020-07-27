@@ -147,16 +147,17 @@ const StepThree = () => {
             What additional support would you need from NBSSI to be able to
             train apprentices?:
           </label>
-          <input
+          <textarea
             type="text"
             className="form-control"
+            rows="3"
             id="tr-apprentc"
             name="additional_support"
             onChange={changeHandler}
             placeholder="additional support"
             ref={register()}
             defaultValue={data.additional_support}
-          />
+          ></textarea>
         </div>
         <div className="buttons">
           <button
