@@ -18,6 +18,7 @@ const App = () => {
 
   let lsData;
   useEffect(() => {
+    // eslint-disable-next-line
     lsData = getItem("string");
     if (lsData) {
       setData({ ...lsData.data });
