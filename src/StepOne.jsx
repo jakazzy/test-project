@@ -11,6 +11,7 @@ function StepOne() {
     buttonsState,
     setStepState,
     compState,
+    setData,
   } = useContext(FormContext);
 
   const previous = () =>
@@ -19,15 +20,14 @@ function StepOne() {
   const { register, handleSubmit, errors } = useForm();
   const [gen, setGen] = useState([]);
 
-  const onSubmit = (data) => {
-    console.log(data, "*********************");
+  const onSubmit = (result) => {
+    setData({ ...data, ...result });
     return setStepState(compState + 1);
   };
   useEffect(() => {
     async function fetchGender() {
       const gender = await getGender();
       setGen(gender);
-      console.log(gender);
     }
     fetchGender();
   }, []);

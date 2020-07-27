@@ -5,10 +5,12 @@ import { FormContext } from "./context/FormContext";
 const StepThree = () => {
   const {
     data,
+    setData,
     changeHandler,
     buttonsState,
     setStepState,
     compState,
+    addTrainer,
   } = useContext(FormContext);
 
   const { register, handleSubmit, errors } = useForm();
@@ -16,8 +18,10 @@ const StepThree = () => {
   const previous = () =>
     setStepState(compState > 0 ? compState - 1 : compState);
 
-  const onSubmit = (data) => {
-    console.log(data, "*********************");
+  const onSubmit = (result) => {
+    setData({ ...data, ...result });
+    const send = async () => await addTrainer();
+    send();
     return setStepState(compState + 1);
   };
 

@@ -35,7 +35,8 @@ const FormContextProvider =(props) =>{
     })
 
     const addTrainer = async()=>{
-      await sendData(data)
+      console.log("you triggered");
+     return await sendData(data)
     }
 
     const getNavStyles = (indx, length) => {
@@ -84,20 +85,17 @@ const getButtonsState = (indx, length) => {
         setButtons(getButtonsState(indx, steps))
       }
     const changeHandler=(e)=>{
-        // console.log(e.target.value, 'i see you');
-        const value = { [e.target.name]: e.target.value}
-        setData( {...data,...value }  )
+        // const value = { [e.target.name]: e.target.value}
+        // setData( {...data,...value }  )
     }
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        // console.log(data, 'are these there?');
-        
     }
     
 
     return (
-        <FormContext.Provider value={{ data, changeHandler, handleSubmit, stylesState, buttonsState, setStepState, compState, show, setShow, addTrainer}}>
+        <FormContext.Provider value={{ data, setData, changeHandler, handleSubmit, stylesState, buttonsState, setStepState, compState, show, setShow, addTrainer}}>
             { props.children }
         </FormContext.Provider>
     )

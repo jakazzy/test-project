@@ -14,7 +14,6 @@ function decpt(){
         }
       );
       const actualData = JSON.parse(CryptoJS.enc.Utf8.stringify(decrypted));
-      console.log(actualData,'this is it');
       return actualData
 }
 
