@@ -1,3 +1,3 @@
 ### `TEST PROJECT`
 
-This project was created as test project at Logiciel Ghana Ltd.<br />
+This is a test project to be completed<br />
