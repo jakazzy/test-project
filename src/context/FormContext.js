@@ -6,6 +6,10 @@ export const FormContext = createContext()
 // manually edit the number of steps here
 const steps = 4
 
+window.onbeforeunload=function(){
+  const ls = new SecureLS({encodingType: 'aes', encryptionSecret: process.env.REACT_APP_KEY})
+  ls.clear()
+}
 const FormContextProvider =(props) =>{
   const ls = new SecureLS({encodingType: 'aes', encryptionSecret: process.env.REACT_APP_KEY})
     const [data, setData ] =useState({
