@@ -6,6 +6,7 @@ import StepThree from "./StepThree";
 import Modal from "./Modal";
 import { FormContext } from "./context/FormContext";
 import "./App.css";
+import StepFour from "./StepFour";
 
 const App = () => {
   const { show, getItem, setData, setShow } = useContext(FormContext);
@@ -14,6 +15,7 @@ const App = () => {
     { name: "StepOne", component: <StepOne /> },
     { name: "StepTwo", component: <StepTwo /> },
     { name: "StepThree", component: <StepThree /> },
+    { name: "StepFour", component: <StepFour /> },
   ];
 
   let lsData;

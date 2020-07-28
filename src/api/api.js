@@ -62,13 +62,17 @@ export const getGender=async()=>{
 
 export const sendData =(data)=>{ 
   const keyHex = CryptoJS.enc.Base64.parse(process.env.REACT_APP_KEY);
+
+
  let encrypted = CryptoJS.DES.encrypt(JSON.stringify(data), keyHex, {
     mode: CryptoJS.mode.ECB,
     padding: CryptoJS.pad.Pkcs7
 });
+
 encrypted= encrypted.toString(); 
 const url=`${process.env.REACT_APP_BASE_URL}webresources/scp/wapp/scptrainer`
-axios.post(url, {data: encrypted}) 
+axios.post(url, {data: encrypted})
+.then(response=> console.log(response, "this is the response"))
 .catch((error)=>{
   console.error(error);
 })

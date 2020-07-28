@@ -4,7 +4,7 @@ import {sendData } from '../api/api'
 
 export const FormContext = createContext()
 // manually edit the number of steps here
-const steps = 3
+const steps = 4
 
 const FormContextProvider =(props) =>{
   const ls = new SecureLS({encodingType: 'aes', encryptionSecret: process.env.REACT_APP_KEY})
