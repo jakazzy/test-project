@@ -71,7 +71,8 @@ export const sendData =(data)=>{
 
 encrypted= encrypted.toString(); 
 const url=`${process.env.REACT_APP_BASE_URL}webresources/scp/wapp/scptrainer`
-axios.post(url, {data: encrypted})
+
+axios.post(url, encrypted)
 .then(response=> console.log(response, "this is the response"))
 .catch((error)=>{
   console.error(error);
