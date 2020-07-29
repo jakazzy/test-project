@@ -194,7 +194,7 @@ const StepTwo = () => {
             id="reg"
             rows="3"
             onChange={changeHandler}
-            name="registered_no"
+            name="registration_no"
             ref={register()}
             defaultValue={data.registered_no}
             placeholder="registration number"

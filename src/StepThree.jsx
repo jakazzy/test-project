@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import swal from "sweetalert";
 import { FormContext } from "./context/FormContext";
 
 const StepThree = () => {
@@ -11,7 +10,7 @@ const StepThree = () => {
     buttonsState,
     setStepState,
     compState,
-    addTrainer,
+    // addTrainer,
     setItem,
     clearAll,
   } = useContext(FormContext);
@@ -24,17 +23,21 @@ const StepThree = () => {
   const onSubmit = (result) => {
     setData({ ...data, ...result });
     setItem("string", { ...data, ...result });
-    const send = async () => await addTrainer();
+    // const send = async () => await addTrainer();
     clearAll();
-    send();
-    swal({
-      title: "Good job!",
-      text: "Form has been successfully submited!",
-      icon: "success",
-    });
-
+    // send();
     return setStepState(compState + 1);
   };
+
+  // useEffect(() => {
+  //   const send = async () => await addTrainer();
+  //   swal({
+  //     title: "Good job!",
+  //     text: "Form has been successfully submited!",
+  //     icon: "success",
+  //   });
+  //   send();
+  // }, [addTrainer]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -180,7 +183,7 @@ const StepThree = () => {
             type="submit"
             className="btn btn-primary nav-btn"
           >
-            Submit
+            Next
           </button>
         </div>
       </div>
