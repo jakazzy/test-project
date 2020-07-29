@@ -40,7 +40,14 @@ const FormContextProvider =(props) =>{
     })
 
     const addTrainer = async()=>{
-     return await sendData(data)
+      const today = new Date();
+      const dd = String(today.getDate()).padStart(2, '0');
+      const mm = String(today.getMonth() + 1).padStart(2, '0'); 
+      const yyyy = today.getFullYear();
+      const date = mm + '/' + dd + '/' + yyyy;
+      const val = {...data, "createdon": date}
+      console.log(val, 'this is the data sent');
+     return await sendData(val)
     }
 
     const getNavStyles = (indx, length) => {
