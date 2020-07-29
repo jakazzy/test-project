@@ -501,7 +501,6 @@ const StepTwo = () => {
 
           <button
             style={buttonsState.showNextBtn ? {} : { display: "none" }}
-            // onClick={next}
             type="submit"
             className="btn btn-primary nav-btn"
           >
