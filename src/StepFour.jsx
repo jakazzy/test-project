@@ -31,6 +31,7 @@ const StepFour = () => {
     email,
     digital_address,
     business_name,
+    town,
     business_location,
     region,
     district,
@@ -51,34 +52,57 @@ const StepFour = () => {
   } = data;
   return (
     <div className="container">
-      <h5 className="text-center success-text font-weight-bold">
+      <h5 className="success-text font-weight-bold">
         Kindly confirm if all the details provided are correct before proceeding
         to submit the form
       </h5>
-      <div className="text-center">
-        <p>Name: {trainer_name}</p>
+      <div className="container">
+        <p>Name of Skilled Craft Person: {trainer_name}</p>
         <p>Gender: {gender}</p>
-        <p>Phone Number: {telephone}</p>
-        <p>Email: {email}</p>
-        <p>Address: {digital_address}</p>
+        <p>Contact Number: {telephone}</p>
+        <p>Email Address: {email}</p>
+        <p>Ghana Post Digital Address: {digital_address}</p>
         <p>Business Name: {business_name}</p>
         <p>Business Location: {business_location}</p>
+        <p>Town: {town}</p>
         <p>Region: {region}</p>
-        <p>district: {district}</p>
-        <p>registered: {registered} </p>
-        <p>registration number: {registration_no} </p>
-        <p> Have Tin number: {has_tin} </p>
-        <p> Tin Number:{tin_no} </p>
-        <p> Association Member: {associaiton_member} </p>
+        <p>District: {district}</p>
+        <p>Is your business registered: {registered} </p>
+        <p>If yes state your registration number: {registration_no} </p>
+        <p> Do you have a business TIN number: {has_tin} </p>
+        <p> If yes, state your business TIN Number:{tin_no} </p>
+        <p>
+          Are you a member of a trade association in your locality?:
+          {associaiton_member}
+        </p>
         <p> NVTI certificate: {nvti_cert} </p>
-        <p> Received NBSSI support Before(True/False): {rcvd_nbssi_support} </p>
-        <p> Do you want NBSSI support: {want_nbssi_support} </p>
-        <p> Support description: {support_description} </p>
-        <p> Years practicing: {years_practicing} </p>
-        <p> Trained Apprentice Before(Yes/No): {trained_apprentice}</p>
-        <p> Do you want to train an apprentice: {want_train_apprentice}</p>
-        <p> Number of apprentices: {no_apprentices}</p>
-        <p> Additional Support: {additional_support}</p>
+        <p> Have you received any support from NBSSI?: {rcvd_nbssi_support} </p>
+        <p>
+          {" "}
+          If no, would you want to receive support from NBSSI?:{" "}
+          {want_nbssi_support}{" "}
+        </p>
+        <p>
+          {" "}
+          If yes, what kind of support do you need from NBSSI::{" "}
+          {support_description}{" "}
+        </p>
+        <p>
+          {" "}
+          How many years have you been a Skilled Craft Person?:{" "}
+          {years_practicing}{" "}
+        </p>
+        <p> Have you trained apprentices before?: {trained_apprentice}</p>
+        <p>
+          {" "}
+          If no, would you like to train apprentices?: {want_train_apprentice}
+        </p>
+        <p> How many apprentices can you take at a time?: {no_apprentices}</p>
+        <p>
+          {" "}
+          What additional support would you need from NBSSI to be able to train
+          apprentices?: {additional_support}
+        </p>
       </div>
 
       <div className="buttons">
