@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FormContext } from "./context/FormContext";
-import "./stepone.css";
 import { getGender } from "./api/api";
 
 function StepOne() {

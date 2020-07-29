@@ -51,35 +51,36 @@ const StepFour = () => {
   } = data;
   return (
     <div className="container">
-      <p className="text-center success-text bold d2">
+      <h5 className="text-center success-text font-weight-bold">
         Kindly confirm if all the details provided are correct before proceeding
         to submit the form
-      </p>
-      <p>Name: {trainer_name}</p>
-      <p>Gender: {gender}</p>
-      <p>Phone Number: {telephone}</p>
-      <p>Email: {email}</p>
-      <p>Address: {digital_address}</p>
-      <p>Business Name: {business_name}</p>
-      <p>Business Location: {business_location}</p>
-      <p>Region: {region}</p>
-      <p>district: {district}</p>
-      <p>registered: {registered} </p>
-      <p>registration number: {registration_no} </p>
-      <p> Have Tin number: {has_tin} </p>
-      <p> Tin Number:{tin_no} </p>
-      <p> Association Member: {associaiton_member} </p>
-      <p> NVTI certificate: {nvti_cert} </p>
-      <p> Received NBSSI support Before(True/False): {rcvd_nbssi_support} </p>
-      <p> Do you want NBSSI support: {want_nbssi_support} </p>
-      <p> Support description: {support_description} </p>
-      <p> Years practicing: {years_practicing} </p>
-      <p> Trained Apprentice Before(Yes/No): {trained_apprentice}</p>
-      <p> Do you want to train an apprentice: {want_train_apprentice}</p>
-      <p> Number of apprentices: {no_apprentices}</p>
-      <p> Additional Support: {additional_support}</p>
-      <p></p>
-      <p></p>
+      </h5>
+      <div className="text-center">
+        <p>Name: {trainer_name}</p>
+        <p>Gender: {gender}</p>
+        <p>Phone Number: {telephone}</p>
+        <p>Email: {email}</p>
+        <p>Address: {digital_address}</p>
+        <p>Business Name: {business_name}</p>
+        <p>Business Location: {business_location}</p>
+        <p>Region: {region}</p>
+        <p>district: {district}</p>
+        <p>registered: {registered} </p>
+        <p>registration number: {registration_no} </p>
+        <p> Have Tin number: {has_tin} </p>
+        <p> Tin Number:{tin_no} </p>
+        <p> Association Member: {associaiton_member} </p>
+        <p> NVTI certificate: {nvti_cert} </p>
+        <p> Received NBSSI support Before(True/False): {rcvd_nbssi_support} </p>
+        <p> Do you want NBSSI support: {want_nbssi_support} </p>
+        <p> Support description: {support_description} </p>
+        <p> Years practicing: {years_practicing} </p>
+        <p> Trained Apprentice Before(Yes/No): {trained_apprentice}</p>
+        <p> Do you want to train an apprentice: {want_train_apprentice}</p>
+        <p> Number of apprentices: {no_apprentices}</p>
+        <p> Additional Support: {additional_support}</p>
+      </div>
+
       <div className="buttons">
         <button
           style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
