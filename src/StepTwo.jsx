@@ -110,7 +110,7 @@ const StepTwo = () => {
             onChange={changeRegion}
           >
             {regions.map((region) => (
-              <option key={region.code} value={region.name} val={region.code}>
+              <option key={region.code} value={region.code} val={region.code}>
                 {region.name}
               </option>
             ))}
@@ -132,7 +132,7 @@ const StepTwo = () => {
             defaultValue={data.district}
           >
             {districts.map((district) => (
-              <option key={district.id} value={district.name}>
+              <option key={district.id} value={district.code}>
                 {district.name}
               </option>
             ))}

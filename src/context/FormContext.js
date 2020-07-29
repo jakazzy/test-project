@@ -13,6 +13,7 @@ window.onbeforeunload=function(){
 const FormContextProvider =(props) =>{
   const ls = new SecureLS({encodingType: 'aes', encryptionSecret: process.env.REACT_APP_KEY})
     const [data, setData ] =useState({
+        "trainer_id": "",
         "trainer_name": "",
         "gender": "",
         "telephone": "",
@@ -39,13 +40,22 @@ const FormContextProvider =(props) =>{
         "createdon": ""
     })
 
-    const addTrainer = async()=>{
+  const genRand=() =>{
+      return Math.floor(Math.random()*89999+10000);
+   }
+
+   const newDate =()=>{
       const today = new Date();
       const dd = String(today.getDate()).padStart(2, '0');
       const mm = String(today.getMonth() + 1).padStart(2, '0'); 
       const yyyy = today.getFullYear();
       const date = mm + '/' + dd + '/' + yyyy;
-      const val = {...data, "createdon": date}
+      return date
+   }
+
+    const addTrainer = async()=>{
+      
+      const val = {...data, "createdon": newDate(), "trainer_id": genRand()}
       console.log(val, 'this is the data sent');
      return await sendData(val)
     }
