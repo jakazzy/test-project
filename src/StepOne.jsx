@@ -72,7 +72,7 @@ function StepOne() {
                       type="radio"
                       name={gend.type}
                       id="gridRadios1"
-                      value={gend.name}
+                      value={gend.id}
                       onChange={changeHandler}
                       ref={register({ required: "gender is required" })}
                       defaultChecked={data[`${gend.name}`]}

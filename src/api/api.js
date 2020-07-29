@@ -17,6 +17,7 @@ export const getRegions=async()=>{
         }
       );
       const actualData = JSON.parse(CryptoJS.enc.Utf8.stringify(decrypted));
+      console.log(actualData, 'Regions');
       return actualData
     }
 
@@ -37,6 +38,7 @@ export const getDistricts=async(region_code)=>{
         }
       );
       const actualData = JSON.parse(CryptoJS.enc.Utf8.stringify(decrypted));
+      console.log(actualData, "districts");
       return actualData
 }
 
@@ -56,6 +58,7 @@ export const getGender=async()=>{
         }
       );
       const actualData = JSON.parse(CryptoJS.enc.Utf8.stringify(decrypted));
+      console.log(actualData, "gender");
       return actualData
 }
 
