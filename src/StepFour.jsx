@@ -51,9 +51,10 @@ const StepFour = () => {
   } = data;
   return (
     <div className="container">
-      {/* <div className="text-center success-text font-weight-bold display-4">
-        Form submitted Successfully
-      </div> */}
+      <p className="text-center success-text">
+        confirm if all the details provided are correct before proceeding to
+        submit
+      </p>
       <p>Name: {trainer_name}</p>
       <p>Gender: {gender}</p>
       <p>Phone Number: {telephone}</p>

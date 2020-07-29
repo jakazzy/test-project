@@ -53,7 +53,7 @@ const StepThree = () => {
                 type="radio"
                 name="trained_apprentice"
                 id="apprentice1"
-                value="yes"
+                value="Y"
                 onChange={changeHandler}
                 ref={register({
                   required:
@@ -71,7 +71,7 @@ const StepThree = () => {
                 type="radio"
                 name="trained_apprentice"
                 id="apprentice2"
-                value="no"
+                value="N"
                 onChange={changeHandler}
                 ref={register({
                   required:
@@ -101,7 +101,7 @@ const StepThree = () => {
                 className="form-check-input"
                 type="radio"
                 id="train1"
-                value="yes"
+                value="Y"
                 name="want_train_apprentice"
                 onChange={changeHandler}
                 ref={register()}
@@ -116,7 +116,7 @@ const StepThree = () => {
                 className="form-check-input"
                 type="radio"
                 id="train2"
-                value="no"
+                value="N"
                 name="want_train_apprentice"
                 onChange={changeHandler}
                 ref={register()}
