@@ -52,11 +52,11 @@ const StepFour = () => {
   } = data;
   return (
     <div className="container">
-      <h5 className="text-center success-text font-weight-bold">
+      <h5 className="success-text font-weight-bold">
         Kindly confirm if all the details provided are correct before proceeding
         to submit the form
       </h5>
-      <div className="text-center">
+      <div className="container">
         <p>Name of Skilled Craft Person: {trainer_name}</p>
         <p>Gender: {gender}</p>
         <p>Contact Number: {telephone}</p>
