@@ -19,7 +19,9 @@ const StepTwo = () => {
   } = useContext(FormContext);
 
   const { register, handleSubmit, errors } = useForm();
+
   const onSubmit = (result) => {
+    console.log(result, "i see you");
     setData({ ...data, ...result });
     setItem("string", { ...data, ...result });
     return setStepState(compState + 1);
@@ -151,7 +153,7 @@ const StepTwo = () => {
                 className="form-check-input"
                 type="radio"
                 id="reg1"
-                value="yes"
+                value="Y"
                 onChange={changeHandler}
                 name="registered"
                 ref={register({
@@ -168,7 +170,7 @@ const StepTwo = () => {
                 className="form-check-input"
                 type="radio"
                 id="reg2"
-                // value="no"
+                value="N"
                 onChange={changeHandler}
                 name="registered"
                 ref={register({
@@ -213,7 +215,7 @@ const StepTwo = () => {
                 id="tin1"
                 onChange={changeHandler}
                 name="has_tin"
-                value="yes"
+                value="Y"
                 ref={register({
                   required: "Tin number confirmation is required",
                 })}
@@ -230,7 +232,7 @@ const StepTwo = () => {
                 id="tin2"
                 onChange={changeHandler}
                 name="has_tin"
-                value="no"
+                value="N"
                 ref={register({
                   required: "Tin number confirmation is required",
                 })}
@@ -276,7 +278,7 @@ const StepTwo = () => {
                 id="assoc1"
                 onChange={changeHandler}
                 name="association_member"
-                value="yes"
+                value="Y"
                 ref={register({
                   required:
                     "response for trade association member enquiry required",
@@ -292,7 +294,7 @@ const StepTwo = () => {
                 className="form-check-input"
                 type="radio"
                 id="assoc2"
-                value="no"
+                value="N"
                 onChange={changeHandler}
                 name="association_member"
                 ref={register({
@@ -325,7 +327,7 @@ const StepTwo = () => {
                 id="nvti1"
                 onChange={changeHandler}
                 name="nvti_cert"
-                value="yes"
+                value="Y"
                 ref={register({
                   required: "response for NVTI certficate required",
                 })}
@@ -340,7 +342,7 @@ const StepTwo = () => {
                 className="form-check-input"
                 type="radio"
                 id="nvti2"
-                value="no"
+                value="N"
                 onChange={changeHandler}
                 name="nvti_cert"
                 ref={register({
@@ -368,7 +370,7 @@ const StepTwo = () => {
                 className="form-check-input"
                 type="radio"
                 id="nbssi1"
-                value="yes"
+                value="Y"
                 onChange={changeHandler}
                 name="rcvd_nbssi_support"
                 ref={register({
@@ -385,7 +387,7 @@ const StepTwo = () => {
                 className="form-check-input"
                 type="radio"
                 id="nbssi2"
-                value="no"
+                value="N"
                 onChange={changeHandler}
                 name="rcvd_nbssi_support"
                 ref={register({
@@ -415,7 +417,7 @@ const StepTwo = () => {
                 className="form-check-input"
                 type="radio"
                 id="support1"
-                value="yes"
+                value="Y"
                 onChange={changeHandler}
                 name="want_nbssi_support"
                 ref={register({
@@ -432,7 +434,7 @@ const StepTwo = () => {
                 className="form-check-input"
                 type="radio"
                 id="support2"
-                value="no"
+                value="N"
                 onChange={changeHandler}
                 name="want_nbssi_support"
                 ref={register({
