@@ -3,7 +3,6 @@ import { FormContext } from "./context/FormContext";
 import { useForm } from "react-hook-form";
 import { getRegions, getDistricts } from "./api/api";
 import { regionData } from "./data/data";
-import "./stepone.css";
 
 const StepTwo = () => {
   const [districts, setDistricts] = useState([]);
@@ -501,7 +500,6 @@ const StepTwo = () => {
 
           <button
             style={buttonsState.showNextBtn ? {} : { display: "none" }}
-            // onClick={next}
             type="submit"
             className="btn btn-primary nav-btn"
           >

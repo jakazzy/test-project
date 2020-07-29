@@ -106,8 +106,7 @@ const getButtonsState = (indx, length) => {
         setButtons(getButtonsState(indx, steps))
       }
     const changeHandler=(e)=>{
-        // const value = { [e.target.name]: e.target.value}
-        // setData( {...data,...value }  )
+   
     }
 
     const setItem =(key, value)=>{

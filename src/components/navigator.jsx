@@ -52,17 +52,6 @@ const LiClass = (props) => css`
 const Navigator = (props) => {
   const { stylesState } = useContext(FormContext);
 
-  // const handleOnClick = (evt) => {
-  //   if (
-  //     evt.currentTarget.value === props.steps.length - 1 &&
-  //     compState === props.steps.length - 1
-  //   ) {
-  //     setStepState(props.steps.length);
-  //   } else {
-  //     setStepState(evt.currentTarget.value);
-  //   }
-  // };
-
   const stepName = (step) => {
     switch (step) {
       case 1:
@@ -78,19 +67,12 @@ const Navigator = (props) => {
 
   const renderSteps = () =>
     props.steps.map((s, i) => (
-      <li
-        className={LiClass({ state: stylesState[i] })}
-        // onClick={handleOnClick}
-        key={i}
-        value={i}
-      >
+      <li className={LiClass({ state: stylesState[i] })} key={i} value={i}>
         <span>{stepName(i + 1)}</span>
       </li>
     ));
 
   return <Ol> {renderSteps()}</Ol>;
 };
-
-//props for the steps
 
 export default Navigator;

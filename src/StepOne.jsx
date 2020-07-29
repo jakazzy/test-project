@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FormContext } from "./context/FormContext";
-import "./stepone.css";
 import { getGender } from "./api/api";
 
 function StepOne() {
@@ -151,7 +150,6 @@ function StepOne() {
           )}
         </div>
 
-        <div>{/* <input type="submit" value="Continue" /> */}</div>
         <div className="buttons">
           <button
             style={buttonsState.showPreviousBtn ? {} : { display: "none" }}

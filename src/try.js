@@ -1,6 +1,6 @@
 var CryptoJS =require("crypto-js");
 function decpt(){
-   let data= {name: "Adu", surname: "Kofi"}
+   let data= {name: "Adu", surname: "Ama"}
     data = JSON.stringify(data)
     // var keyHex = CryptoJS.enc.Base64.parse( "Fg7EZ/RRa0Y=");
       var decrypted = CryptoJS.DES.encrypt(
