@@ -51,9 +51,9 @@ const StepFour = () => {
   } = data;
   return (
     <div className="container">
-      <p className="text-center success-text">
-        confirm if all the details provided are correct before proceeding to
-        submit
+      <p className="text-center success-text bold d2">
+        Kindly confirm if all the details provided are correct before proceeding
+        to submit the form
       </p>
       <p>Name: {trainer_name}</p>
       <p>Gender: {gender}</p>
